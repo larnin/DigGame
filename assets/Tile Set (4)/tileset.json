@@ -4,5 +4,9 @@
     "width": 32,
     "height": 32
   },
-  "tileProperties": {}
+  "tileProperties": {
+    "3_4": {
+      "collide": ""
+    }
+  }
 }

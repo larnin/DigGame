@@ -76,7 +76,7 @@
               "y": 0
             },
             "tileMapAssetId": "6",
-            "tileSetPropertyName": null,
+            "tileSetPropertyName": "collide",
             "layersIndex": "0",
             "formatVersion": 2,
             "bounce": {
