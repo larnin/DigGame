@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 7,
+  "nextEntryId": 8,
   "nodes": [
     {
       "id": "0",
@@ -32,6 +32,11 @@
           "type": "script"
         }
       ]
+    },
+    {
+      "id": "7",
+      "name": "MapGenerator",
+      "type": "script"
     }
   ]
 }
