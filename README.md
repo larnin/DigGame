@@ -1,3 +1,3 @@
 DigGame
 
-A superpower porject
+A superpower project
