@@ -1,0 +1,36 @@
+{
+  "formatVersion": 1,
+  "grid": {
+    "width": 64,
+    "height": 64
+  },
+  "tileProperties": {
+    "1_0": {
+      "Collision": ""
+    },
+    "2_0": {
+      "Collision": ""
+    },
+    "3_0": {
+      "Collision": ""
+    },
+    "4_0": {
+      "Collision": ""
+    },
+    "5_0": {
+      "Collision": ""
+    },
+    "6_0": {
+      "Collision": ""
+    },
+    "7_0": {
+      "Collision": ""
+    },
+    "8_0": {
+      "Collision": ""
+    },
+    "10_0": {
+      "Collision": ""
+    }
+  }
+}

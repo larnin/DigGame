@@ -11,7 +11,7 @@
           "config": {
             "mode": "orthographic",
             "fov": 45,
-            "orthographicScale": 20,
+            "orthographicScale": 35,
             "viewport": {
               "x": 0,
               "y": 0,
@@ -52,19 +52,6 @@
       "children": [],
       "components": [
         {
-          "type": "TileMapRenderer",
-          "config": {
-            "tileMapAssetId": "6",
-            "tileSetAssetId": null,
-            "castShadow": false,
-            "receiveShadow": false,
-            "materialType": "basic",
-            "shaderAssetId": null,
-            "formatVersion": 1
-          },
-          "id": "0"
-        },
-        {
           "type": "ArcadeBody2D",
           "config": {
             "type": "tileMap",
@@ -75,8 +62,8 @@
               "x": 0,
               "y": 0
             },
-            "tileMapAssetId": "6",
-            "tileSetPropertyName": "collide",
+            "tileMapAssetId": "9",
+            "tileSetPropertyName": "Collision",
             "layersIndex": "0",
             "formatVersion": 2,
             "bounce": {
@@ -87,17 +74,22 @@
           "id": "1"
         },
         {
-          "type": "Behavior",
+          "type": "TileMapRenderer",
           "config": {
-            "behaviorName": "MapGeneratorBehavior",
-            "propertyValues": {}
+            "formatVersion": 1,
+            "tileMapAssetId": "9",
+            "tileSetAssetId": null,
+            "castShadow": false,
+            "receiveShadow": false,
+            "materialType": "basic",
+            "shaderAssetId": null
           },
-          "id": "2"
+          "id": "3"
         }
       ],
       "position": {
-        "x": -20,
-        "y": -10,
+        "x": -30,
+        "y": -18.5,
         "z": 0
       },
       "orientation": {
@@ -171,8 +163,8 @@
       ],
       "position": {
         "x": 0,
-        "y": 0,
-        "z": 0
+        "y": 12.563,
+        "z": 1
       },
       "orientation": {
         "x": 0,

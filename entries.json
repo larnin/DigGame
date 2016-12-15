@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 8,
+  "nextEntryId": 10,
   "nodes": [
     {
       "id": "0",
@@ -8,12 +8,12 @@
     },
     {
       "id": "4",
-      "name": "Tile Set",
+      "name": "Tile Set OLD",
       "type": "tileSet"
     },
     {
       "id": "6",
-      "name": "Map",
+      "name": "Map OLD",
       "type": "tileMap"
     },
     {
@@ -37,6 +37,16 @@
       "id": "7",
       "name": "MapGenerator",
       "type": "script"
+    },
+    {
+      "id": "8",
+      "name": "TileSet",
+      "type": "tileSet"
+    },
+    {
+      "id": "9",
+      "name": "Map Test",
+      "type": "tileMap"
     }
   ]
 }
