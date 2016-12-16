@@ -10,6 +10,7 @@ class PlayerBehavior extends Sup.Behavior {
     // As explained above, we get the current velocity
     let velocity = this.actor.arcadeBody2D.getVelocity();
 
+    
     // We override the `.x` component based on the player's input
     if (Sup.Input.isKeyDown("LEFT")) {
       velocity.x = -this.speed;
@@ -21,6 +22,7 @@ class PlayerBehavior extends Sup.Behavior {
       this.actor.spriteRenderer.setHorizontalFlip(false);
     } else velocity.x = 0;
 
+    
     // If the player is on the ground and wants to jump,
     // we update the `.y` component accordingly
     let touchBottom = this.actor.arcadeBody2D.getTouches().bottom;
