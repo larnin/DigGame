@@ -18,12 +18,23 @@ const stoneHeight = totalHeight-30;
 const stoneMaxProbability = 0.85;
 const hardStoneHeight = totalHeight-70;
 const hardStoneMaxProbability = 0.25;
-const holesHeight = totalHeight-20;
-const holesMaxProbability = 128;
-const holesStretch = 3;
+const holesHeightTransition = 40;
+const holesMaxProbability = 80;
+const holesStretch = 2;
+const holesMaxHeight = grassHeight-5;
 
-const holesCount = 10;
-const holesMaxHeight = grassHeight-20;
+const coalHeight = grassHeight;
+const coalTransitionSize = 5;
+const coalProbability = 0.05;
+const ironHeight = grassHeight-15;
+const ironProbability = 0.04;
+const silverHeight = grassHeight-30;
+const silverProbability = 0.03;
+const goldHeight = grassHeight-40;
+const goldProbabiliy = 0.025;
+const diamondHeight = grassHeight-50;
+const diamondProbability = 0.02;
+const oreTransitionSize = 20;
 
 function generate(map : Sup.TileMap) : void
 {
@@ -32,13 +43,14 @@ function generate(map : Sup.TileMap) : void
       map.setTileAt(0, i, j, placeMineralLayer(i, j, map.getWidth(), map.getHeight()));
   
   placeHoles(map);
+  placeOres(map);
 }
 
 function placeMineralLayer(x : number, y : number, width : number, height : number) : number
 {
   if(y > grassHeight)
   {
-    if(x === 0 || x === width-1)
+    if(x == 0 || x == width-1)
       return solidAirID;
     return airID;
   }
@@ -51,14 +63,12 @@ function placeMineralLayer(x : number, y : number, width : number, height : numb
   
   if(y >= stoneHeight)
     return dirtID;
-  let stoneProbability = (stoneHeight-y)/stoneHeight;
-  stoneProbability = (-stoneProbability*stoneProbability+2*stoneProbability)*stoneMaxProbability;
+  let stoneProbability = probabilitySquared(0, stoneHeight, y, 0, stoneMaxProbability);
   let id = dirtID;
   if(Math.random() <= stoneProbability)
     id = stoneID;
   
-  let hardStoneProbability = (hardStoneHeight-y)/hardStoneHeight;
-  hardStoneProbability = (-hardStoneProbability*hardStoneProbability+2*hardStoneProbability)*hardStoneMaxProbability;
+  let hardStoneProbability = probabilitySquared(0, hardStoneHeight, y, 0, hardStoneMaxProbability);
   if(Math.random() <= hardStoneProbability)
     id = hardStoneID;
   
@@ -67,23 +77,61 @@ function placeMineralLayer(x : number, y : number, width : number, height : numb
 
 function placeHoles(map : Sup.TileMap) : void
 {
-  /*
-  amplitude?: number
-  frequency?: number
-  max?: number
-  min?: number
-  octaves?: number
-  persistence?: number
-  random?: () => number
-  */
-  let noise = new FastSimplexNoise({frequency: 0.03, max: 255, min: 0, octaves: 4});
+  let noise = new FastSimplexNoise({frequency: 0.07, max: 255, min: 0, octaves: 2});
   for(let i = 0 ; i < map.getWidth() ; i++)
     for(let j = 0 ; j < Math.min(map.getHeight(), holesMaxHeight) ; j++)
     {
-      let holesProbability = (holesMaxHeight-i)/holesMaxHeight;
-      holesProbability = (-holesProbability*holesProbability+2*holesProbability)*holesMaxProbability;
-      if(noise.scaled([i, j*holesStretch])<holesProbability)
+      let holesProbability = probabilityLinear(holesMaxHeight, holesMaxHeight - holesHeightTransition, j, 0, holesMaxProbability);
+      if(noise.scaled([i, j*holesStretch])<holesProbability && !(i == 0 || i == map.getWidth()-1 || j == 0))
         map.setTileAt(0, i, j, airID); 
     }
+}
+
+function placeOres(map : Sup.TileMap) : void
+{
+  for(let i = 0 ; i < map.getWidth() ; i++)
+    for(let j = 0 ; j < Math.min(map.getHeight(), holesMaxHeight) ; j++)
+    {
+      let currentTile = map.getTileAt(0, i, j);
+      if(currentTile == dirtID)
+      {
+        let coalP = probabilitySquared(coalHeight-coalTransitionSize, coalHeight, j, 0, coalProbability);
+        let ironP = probabilitySquared(ironHeight-oreTransitionSize, ironHeight, j, 0, ironProbability);
+        let rand = Math.random();
+        if(rand < coalP)
+          map.setTileAt(0, i, j, coalID);
+        else if(rand < coalP+ironP)
+          map.setTileAt(0, i, j, ironID);
+      }
+      else if(currentTile == stoneID)
+      {
+        let silverP = probabilitySquared(silverHeight-oreTransitionSize, silverHeight, j, 0, silverProbability);
+        let goldP = probabilitySquared(goldHeight-oreTransitionSize, goldHeight, j, 0, goldProbabiliy);
+        let diamondP = probabilitySquared(diamondHeight-oreTransitionSize, diamondHeight, j, 0, diamondProbability);
+        let rand = Math.random();
+        if(rand < silverP)
+          map.setTileAt(0, i, j, silverID);
+        else if(rand < silverP+goldP)
+          map.setTileAt(0, i, j, goldID);
+        else if(rand < silverP+goldP+diamondP)
+          map.setTileAt(0, i, j, diamondID);
+      }
+    }
+}
+
+function probabilityLinear(minRange : number, maxRange : number, value : number, minProbability : number, maxProbability : number) : number
+{
+  let normalisedValue = (value - minRange)/(maxRange-minRange);
+  if(normalisedValue < 0)
+    normalisedValue = 0;
+  if(normalisedValue > 1)
+    normalisedValue = 1;
+  return normalisedValue*maxProbability+(1-normalisedValue*minProbability);
+}
+
+function probabilitySquared(minRange : number, maxRange : number, value : number,  minProbability : number, maxProbability : number) : number
+{
+  let p = probabilityLinear(minRange, maxRange, value, 0, 1);
+  return (-p*p+2*p)*(maxProbability-minProbability)+minProbability;
 }
 
