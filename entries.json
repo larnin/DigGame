@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 10,
+  "nextEntryId": 16,
   "nodes": [
     {
       "id": "0",
@@ -47,6 +47,38 @@
       "id": "9",
       "name": "Map Test",
       "type": "tileMap"
+    },
+    {
+      "id": "11",
+      "name": "GeneratorTest",
+      "type": null,
+      "children": [
+        {
+          "id": "10",
+          "name": "TilemapGeneratorTest",
+          "type": "scene"
+        },
+        {
+          "id": "12",
+          "name": "EmptyTilemap",
+          "type": "tileMap"
+        },
+        {
+          "id": "13",
+          "name": "CameraBehavior",
+          "type": "script"
+        },
+        {
+          "id": "14",
+          "name": "Generator",
+          "type": "script"
+        },
+        {
+          "id": "15",
+          "name": "SimplexNoise",
+          "type": "script"
+        }
+      ]
     }
   ]
 }
