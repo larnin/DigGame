@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 18,
+  "nextEntryId": 21,
   "nodes": [
     {
       "id": "0",
@@ -42,23 +42,21 @@
       "id": "9",
       "name": "Map Test",
       "type": "tileMap"
-<<<<<<<
     },
     {
-      "id": "13",
+      "id": "18",
       "name": "PlayerData",
       "type": "script"
     },
     {
-      "id": "14",
+      "id": "19",
       "name": "PlayerBehavior",
       "type": "script"
     },
     {
-      "id": "15",
+      "id": "20",
       "name": "ConversionMapWorld",
       "type": "script"
-=======
     },
     {
       "id": "11",
@@ -106,7 +104,6 @@
           "type": "tileSet"
         }
       ]
->>>>>>>
     }
   ]
 }
