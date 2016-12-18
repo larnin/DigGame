@@ -42,6 +42,23 @@
       "id": "9",
       "name": "Map Test",
       "type": "tileMap"
+<<<<<<<
+    },
+    {
+      "id": "13",
+      "name": "PlayerData",
+      "type": "script"
+    },
+    {
+      "id": "14",
+      "name": "PlayerBehavior",
+      "type": "script"
+    },
+    {
+      "id": "15",
+      "name": "ConversionMapWorld",
+      "type": "script"
+=======
     },
     {
       "id": "11",
@@ -89,6 +106,7 @@
           "type": "tileSet"
         }
       ]
+>>>>>>>
     }
   ]
 }

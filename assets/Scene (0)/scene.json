@@ -133,7 +133,7 @@
         {
           "type": "Behavior",
           "config": {
-            "behaviorName": "PlayerBehavior",
+            "behaviorName": "PlayerBehavior2",
             "propertyValues": {}
           },
           "id": "1"

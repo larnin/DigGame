@@ -1,5 +1,5 @@
 Sup.ArcadePhysics2D.setGravity(0, -0.02);
-
+/
 class PlayerBehavior extends Sup.Behavior {
   speed = 0.3;
   jumpSpeed = 0.45;
