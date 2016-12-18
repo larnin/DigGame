@@ -47,6 +47,21 @@
           "type": "any"
         }
       ]
+    },
+    "CameraBehavior": {
+      "scriptId": "13",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "speed",
+          "type": "number"
+        },
+        {
+          "name": "zoomSpeed",
+          "type": "number"
+        }
+      ]
     }
   }
 }
