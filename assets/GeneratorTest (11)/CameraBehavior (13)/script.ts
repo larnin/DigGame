@@ -5,7 +5,17 @@ class CameraBehavior extends Sup.Behavior
   
   awake() 
   {
-    generate(Sup.getActor("Tilemap").tileMapRenderer.getTileMap());
+    let tilemap = Sup.getActor("Tilemap").tileMapRenderer.getTileMap();
+    generate(tilemap);
+    tilemap.setTileAt(0, 10, 10, ladderID);
+    tilemap.setTileAt(0, 10, 11, ladderID);
+    tilemap.setTileAt(0, 10, 12, ladderID);
+    tilemap.setTileAt(0, 12, 10, openChestID);
+    tilemap.setTileAt(0, 14, 12, chestID);
+    tilemap.setTileAt(0, 15, 12, chestID);
+    renderAll(tilemap);
+    openChest(tilemap, 15, 12);
+    placeGrave(tilemap, 15, 12);
   }
 
   update() 

@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 16,
+  "nextEntryId": 18,
   "nodes": [
     {
       "id": "0",
@@ -39,11 +39,6 @@
       "type": "script"
     },
     {
-      "id": "8",
-      "name": "TileSet",
-      "type": "tileSet"
-    },
-    {
       "id": "9",
       "name": "Map Test",
       "type": "tileMap"
@@ -77,6 +72,21 @@
           "id": "15",
           "name": "SimplexNoise",
           "type": "script"
+        },
+        {
+          "id": "16",
+          "name": "Block",
+          "type": "script"
+        },
+        {
+          "id": "17",
+          "name": "Render",
+          "type": "script"
+        },
+        {
+          "id": "8",
+          "name": "TileSet",
+          "type": "tileSet"
         }
       ]
     }

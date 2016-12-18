@@ -1,17 +1,3 @@
-const airID = 0;
-const dirtID = 1;
-const stoneID = 2;
-const hardStoneID = 3;
-const coalID = 4;
-const ironID = 5;
-const silverID = 6;
-const goldID = 7;
-const diamondID = 8;
-const ladderID = 9;
-const solidAirID = 10;
-const chestID = 11;
-const openChestID = 12;
-
 const totalHeight = 100;
 const grassHeight = totalHeight-5;
 const stoneHeight = totalHeight-30;
