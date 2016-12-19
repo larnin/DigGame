@@ -35,23 +35,38 @@ class PlayerBehavior2 extends Sup.Behavior
       velocity.x = 0;
     
     
-    if(this.actor.spriteRenderer.getAnimation() == "Climb"){
-      
+    if(this.actor.spriteRenderer.getAnimation() == "Climb")
+    {
+      if (Sup.Input.isKeyDown("UP")) 
+      { 
+        velocity.y = this.speed;
+      }
+      else if (Sup.Input.isKeyDown("DOWN"))
+      {
+        velocity.y = -this.speed;
+      }
+      else
+      {
+        velocity.y = 0;
+      }
+      let toto = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
+      if(this.tilemap.getTileAt(0,withoutDecimal(toto.x),withoutDecimal(toto.y)) != 9)
+      {
+        this.actor.spriteRenderer.setAnimation("Fall");
+        Sup.ArcadePhysics2D.setGravity(0, -0.02);
+      }
     }
     else
     {
       if (this.actor.arcadeBody2D.getTouches().bottom) 
       {
-        if (Sup.Input.wasKeyJustPressed("UP")) {
-          
+        if (Sup.Input.wasKeyJustPressed("UP")) {        
           let toto = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
-          
           if(this.tilemap.getTileAt(0,withoutDecimal(toto.x),withoutDecimal(toto.y)) == 9)
           {
              this.actor.spriteRenderer.setAnimation("Climb");
+             Sup.ArcadePhysics2D.setGravity(0, 0);
           }
-          
-          
           else
           {
             velocity.y = this.jump;
