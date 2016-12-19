@@ -10,7 +10,6 @@ class CameraBehavior extends Sup.Behavior
     dist.subtract(camPos);
     dist.multiplyScalar(this.moveSpeed);
     this.actor.move(dist);
-    Sup.log(this.actor.getPosition());
   }
 }
 Sup.registerBehavior(CameraBehavior);

@@ -102,6 +102,64 @@
           "type": "number"
         }
       ]
+    },
+    "OreCountRenderBehavior": {
+      "scriptId": "39",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "oldCoal",
+          "type": "number"
+        },
+        {
+          "name": "oldIron",
+          "type": "number"
+        },
+        {
+          "name": "oldSilver",
+          "type": "number"
+        },
+        {
+          "name": "oldGold",
+          "type": "number"
+        },
+        {
+          "name": "oldDiamond",
+          "type": "number"
+        },
+        {
+          "name": "oldInv",
+          "type": "number"
+        },
+        {
+          "name": "oldInvSize",
+          "type": "number"
+        },
+        {
+          "name": "oldBones",
+          "type": "number"
+        },
+        {
+          "name": "oldLadders",
+          "type": "number"
+        }
+      ]
+    },
+    "HealthBarRenderBehavior": {
+      "scriptId": "41",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "lifeBarWidth",
+          "type": "number"
+        },
+        {
+          "name": "foodBarWidth",
+          "type": "number"
+        }
+      ]
     }
   }
 }

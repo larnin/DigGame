@@ -1,10 +1,15 @@
 {
-  "nextEntryId": 38,
+  "nextEntryId": 42,
   "nodes": [
     {
       "id": "0",
       "name": "Scene",
       "type": "scene"
+    },
+    {
+      "id": "38",
+      "name": "Font",
+      "type": "font"
     },
     {
       "id": "37",
@@ -173,6 +178,16 @@
         {
           "id": "36",
           "name": "ActorPlacer",
+          "type": "script"
+        },
+        {
+          "id": "39",
+          "name": "OreCountRender",
+          "type": "script"
+        },
+        {
+          "id": "41",
+          "name": "HealthBarRender",
           "type": "script"
         }
       ]

@@ -16,5 +16,10 @@ class PlayerData
   silver = 0;
   gold = 0;
   diamond = 0;
+
+  oreCount() : number
+  {
+    return this.coal + this.iron + this.silver + this.gold + this.diamond;
+  }
 }
 
