@@ -1,7 +1,7 @@
 class GameManagerBehavior extends Sup.Behavior 
 {
   camera : Sup.Camera = null;
-  player : PlayerBehavior = null;
+  player : PlayerBehavior2 = null;
   
   awake() 
   {
@@ -13,7 +13,7 @@ class GameManagerBehavior extends Sup.Behavior
     let player = Sup.getActor("Player");
     if(player == null)
       Sup.log("Can't found the player !");
-    else this.player = player.getBehavior(PlayerBehavior);
+    else this.player = player.getBehavior(PlayerBehavior2);
     
     G.sys.gameManager = this;
   }

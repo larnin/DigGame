@@ -91,6 +91,17 @@
           "type": "number"
         }
       ]
+    },
+    "CameraBehavior": {
+      "scriptId": "37",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "moveSpeed",
+          "type": "number"
+        }
+      ]
     }
   }
 }

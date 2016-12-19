@@ -163,6 +163,14 @@
             "formatVersion": 1
           },
           "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "CameraBehavior",
+            "propertyValues": {}
+          },
+          "id": "1"
         }
       ],
       "position": {
