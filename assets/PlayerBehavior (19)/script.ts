@@ -2,7 +2,7 @@ Sup.ArcadePhysics2D.setGravity(0, -0.02);
 
 class PlayerBehavior2 extends Sup.Behavior 
 {
-  speed = 0.3;
+  speed = 0.2;
   jump = 0.43;
   map = null;
   maprenderer = null;
@@ -43,12 +43,17 @@ class PlayerBehavior2 extends Sup.Behavior
       }
       else if (Sup.Input.isKeyDown("DOWN"))
       {
-        velocity.y = -this.speed;
+          velocity.y = -this.speed; 
       }
       else
       {
         velocity.y = 0;
       }
+      if (this.actor.arcadeBody2D.getTouches().bottom)
+        {
+          Sup.ArcadePhysics2D.setGravity(0, -0.02);
+          this.actor.spriteRenderer.setAnimation("Idle");
+        }
       let toto = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
       if(this.tilemap.getTileAt(0,withoutDecimal(toto.x),withoutDecimal(toto.y)) != 9)
       {
@@ -66,7 +71,7 @@ class PlayerBehavior2 extends Sup.Behavior
           {
              this.actor.spriteRenderer.setAnimation("Climb");
              Sup.ArcadePhysics2D.setGravity(0, 0);
-          }
+          } 
           else
           {
             velocity.y = this.jump;
@@ -81,10 +86,20 @@ class PlayerBehavior2 extends Sup.Behavior
       } 
       else 
       {
-        if (velocity.y >= 0) 
-          this.actor.spriteRenderer.setAnimation("Jump");
-        else 
-          this.actor.spriteRenderer.setAnimation("Fall");
+        let toto = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
+        if(this.tilemap.getTileAt(0,withoutDecimal(toto.x),withoutDecimal(toto.y)) == 9 && (Sup.Input.isKeyDown("UP") || Sup.Input.isKeyDown("DOWN")))
+          {
+              this.actor.spriteRenderer.setAnimation("Climb");
+              Sup.ArcadePhysics2D.setGravity(0, 0);    
+          }
+        else
+          {
+            if (velocity.y >= 0) 
+              this.actor.spriteRenderer.setAnimation("Jump");
+            else 
+              this.actor.spriteRenderer.setAnimation("Fall");      
+          }
+
       }
     }
     this.actor.arcadeBody2D.setVelocity(velocity);
