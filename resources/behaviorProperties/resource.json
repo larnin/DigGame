@@ -48,7 +48,36 @@
         }
       ]
     },
-    "CameraBehavior": {
+    "GameManagerBehavior": {
+      "scriptId": "34",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "ActorPlacerBehavior": {
+      "scriptId": "36",
+      "line": 5,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "hAlign",
+          "type": "number"
+        },
+        {
+          "name": "vAlign",
+          "type": "number"
+        },
+        {
+          "name": "xOffset",
+          "type": "number"
+        },
+        {
+          "name": "yOffset",
+          "type": "number"
+        }
+      ]
+    },
+    "CameraTestBehavior": {
       "scriptId": "13",
       "line": 0,
       "parentBehavior": null,

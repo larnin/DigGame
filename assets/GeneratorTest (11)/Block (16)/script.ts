@@ -12,6 +12,14 @@ const solidAirID = 10;
 const chestID = 11;
 const openChestID = 12;
 
+const dirtDurability = 5;
+const stoneDurability = 10;
+const coalDurability = 10;
+const ironDurability = 15;
+const silverDurability = 20;
+const goldDurability = 25;
+const diamondDurability = 40;
+
 function isCollisionLayer(id : number) : boolean
 {
   return id <= 15;
@@ -98,7 +106,7 @@ function isBreakableBlock(id : number) : boolean
   return isDirt(id) || isStone(id) || isHardStone(id) || isOre(id) || id == chestID;
 }
 
-function blockDifficultyOf(id : number) : number
+function blockDifficultyOf(id : number) : number //mining level
 {
   if(id == coalID || id == chestID)
     return 0;
@@ -115,6 +123,25 @@ function blockDifficultyOf(id : number) : number
   if(isStone(id))
     return 2;
   return 100;
+}
+
+function durabilityOf(id : number)
+{
+  if(id == coalID)
+    return coalDurability;
+  if(id == ironID)
+    return ironDurability;
+  if(id == silverID)
+    return silverDurability;
+  if(id == goldID)
+    return goldDurability;
+  if(id == diamondID)
+    return diamondDurability;
+  if(isDirt(id))
+    return dirtDurability;
+  if(isStone(id))
+    return stoneDurability;
+  return 0;
 }
 
 function canHaveGrave(id : number) : boolean

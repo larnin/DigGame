@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 21,
+  "nextEntryId": 37,
   "nodes": [
     {
       "id": "0",
@@ -49,6 +49,16 @@
       "type": "script"
     },
     {
+      "id": "34",
+      "name": "GameManager",
+      "type": "script"
+    },
+    {
+      "id": "35",
+      "name": "G",
+      "type": "script"
+    },
+    {
       "id": "19",
       "name": "PlayerBehavior",
       "type": "script"
@@ -75,7 +85,7 @@
         },
         {
           "id": "13",
-          "name": "CameraBehavior",
+          "name": "CameraTestBehavior",
           "type": "script"
         },
         {
@@ -102,6 +112,63 @@
           "id": "8",
           "name": "TileSet",
           "type": "tileSet"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "name": "HUD",
+      "type": null,
+      "children": [
+        {
+          "id": "22",
+          "name": "HealthBar",
+          "type": "sprite"
+        },
+        {
+          "id": "23",
+          "name": "LifeBarBack",
+          "type": "sprite"
+        },
+        {
+          "id": "24",
+          "name": "LifeBarLeft",
+          "type": "sprite"
+        },
+        {
+          "id": "25",
+          "name": "LifeBarRight",
+          "type": "sprite"
+        },
+        {
+          "id": "27",
+          "name": "LifeBarMiddle",
+          "type": "sprite"
+        },
+        {
+          "id": "29",
+          "name": "FoodBarLeft",
+          "type": "sprite"
+        },
+        {
+          "id": "30",
+          "name": "FoodBarRight",
+          "type": "sprite"
+        },
+        {
+          "id": "32",
+          "name": "FoodBarMiddle",
+          "type": "sprite"
+        },
+        {
+          "id": "33",
+          "name": "OreViewer",
+          "type": "sprite"
+        },
+        {
+          "id": "36",
+          "name": "ActorPlacer",
+          "type": "script"
         }
       ]
     }

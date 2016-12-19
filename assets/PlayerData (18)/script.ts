@@ -1,17 +1,20 @@
 class PlayerData
 {
-  public bone = 0;
-  public life = 10;
-  public energy = 100;
+  bones = 0;
+  ladders = 0;
+  lifeMax = 10;
+  life = this.lifeMax;
+  energyMax = 100;
+  energy = this.energyMax;
 
-  public lvl_mining = 0;
-
-  public lvl_inventory = 1;
-  public nb_charcoal = 0;
-  public nb_iron = 0;
-  public nb_silver = 0;
-  public nb_gold = 0;
-  public nb_diamond = 0;
-
-  public nb_ladder = 0;
+  energyLvl = 0;
+  miningLvl = 0;
+  inventoryLvl = 0;
+  inventorySize = 5;
+  coal = 0;
+  iron = 0;
+  silver = 0;
+  gold = 0;
+  diamond = 0;
 }
+

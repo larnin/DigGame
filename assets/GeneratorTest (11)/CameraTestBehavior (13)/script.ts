@@ -1,4 +1,4 @@
-class CameraBehavior extends Sup.Behavior 
+class CameraTestBehavior extends Sup.Behavior 
 {
   speed = 0.3;
   zoomSpeed = 0.3;
@@ -39,4 +39,4 @@ class CameraBehavior extends Sup.Behavior
     this.actor.camera.setOrthographicScale(scale);
   }
 }
-Sup.registerBehavior(CameraBehavior);
+Sup.registerBehavior(CameraTestBehavior);
