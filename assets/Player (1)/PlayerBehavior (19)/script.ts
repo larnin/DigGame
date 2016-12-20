@@ -141,7 +141,6 @@ class PlayerBehavior2 extends Sup.Behavior
       {
         if(Sup.Input.isMouseButtonDown(2))
         {
-          Sup.log("OK");
           placeLadder(this.tilemap,mousePositionInTilemap.x,mousePositionInTilemap.y);  
         }
       }
