@@ -66,8 +66,8 @@ class PlayerBehavior2 extends Sup.Behavior
       if (this.actor.arcadeBody2D.getTouches().bottom) 
       {
         if (Sup.Input.wasKeyJustPressed("UP")) {        
-          let toto = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
-          if(this.tilemap.getTileAt(0,withoutDecimal(toto.x),withoutDecimal(toto.y)) == 9)
+          let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
+          if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == 9)
           {
              this.actor.spriteRenderer.setAnimation("Climb");
              Sup.ArcadePhysics2D.setGravity(0, 0);
@@ -86,8 +86,8 @@ class PlayerBehavior2 extends Sup.Behavior
       } 
       else 
       {
-        let toto = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
-        if(this.tilemap.getTileAt(0,withoutDecimal(toto.x),withoutDecimal(toto.y)) == 9 && (Sup.Input.isKeyDown("UP") || Sup.Input.isKeyDown("DOWN")))
+        let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
+        if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == 9 && (Sup.Input.isKeyDown("UP") || Sup.Input.isKeyDown("DOWN")))
           {
               this.actor.spriteRenderer.setAnimation("Climb");
               Sup.ArcadePhysics2D.setGravity(0, 0);    
