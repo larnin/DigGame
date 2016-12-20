@@ -1,30 +1,10 @@
 {
-  "nextEntryId": 42,
+  "nextEntryId": 56,
   "nodes": [
     {
       "id": "0",
       "name": "Scene",
       "type": "scene"
-    },
-    {
-      "id": "38",
-      "name": "Font",
-      "type": "font"
-    },
-    {
-      "id": "37",
-      "name": "CameraBehavior",
-      "type": "script"
-    },
-    {
-      "id": "4",
-      "name": "Tile Set OLD",
-      "type": "tileSet"
-    },
-    {
-      "id": "6",
-      "name": "Map OLD",
-      "type": "tileMap"
     },
     {
       "id": "1",
@@ -37,56 +17,88 @@
           "type": "sprite"
         },
         {
-          "id": "3",
-          "name": "Behavior",
+          "id": "19",
+          "name": "PlayerBehavior",
           "type": "script"
+        },
+        {
+          "id": "18",
+          "name": "PlayerData",
+          "type": "script"
+        },
+        {
+          "id": "42",
+          "name": "BlockCrack",
+          "type": null,
+          "children": [
+            {
+              "id": "43",
+              "name": "allCrack",
+              "type": "sprite"
+            },
+            {
+              "id": "44",
+              "name": "Crack0",
+              "type": "sprite"
+            },
+            {
+              "id": "45",
+              "name": "Crack1",
+              "type": "sprite"
+            },
+            {
+              "id": "46",
+              "name": "Crack2",
+              "type": "sprite"
+            },
+            {
+              "id": "47",
+              "name": "Crack3",
+              "type": "sprite"
+            },
+            {
+              "id": "48",
+              "name": "Crack4",
+              "type": "sprite"
+            },
+            {
+              "id": "49",
+              "name": "Crack5",
+              "type": "sprite"
+            },
+            {
+              "id": "50",
+              "name": "Crack6",
+              "type": "sprite"
+            },
+            {
+              "id": "51",
+              "name": "Crack7",
+              "type": "sprite"
+            },
+            {
+              "id": "52",
+              "name": "Crack8",
+              "type": "sprite"
+            },
+            {
+              "id": "53",
+              "name": "Crack9",
+              "type": "sprite"
+            }
+          ]
         }
       ]
     },
     {
-      "id": "7",
-      "name": "MapGenerator",
-      "type": "script"
-    },
-    {
-      "id": "9",
-      "name": "Map Test",
-      "type": "tileMap"
-    },
-    {
-      "id": "18",
-      "name": "PlayerData",
-      "type": "script"
-    },
-    {
-      "id": "34",
-      "name": "GameManager",
-      "type": "script"
-    },
-    {
-      "id": "35",
-      "name": "G",
-      "type": "script"
-    },
-    {
-      "id": "19",
-      "name": "PlayerBehavior",
-      "type": "script"
-    },
-    {
-      "id": "20",
-      "name": "ConversionMapWorld",
-      "type": "script"
-    },
-    {
       "id": "11",
-      "name": "GeneratorTest",
+      "name": "Map",
       "type": null,
       "children": [
         {
-          "id": "10",
-          "name": "TilemapGeneratorTest",
-          "type": "scene"
+          "id": "9",
+          "name": "Map Test",
+          "type": "tileMap"
         },
         {
           "id": "12",
@@ -94,9 +106,9 @@
           "type": "tileMap"
         },
         {
-          "id": "13",
-          "name": "CameraTestBehavior",
-          "type": "script"
+          "id": "8",
+          "name": "TileSet",
+          "type": "tileSet"
         },
         {
           "id": "14",
@@ -119,9 +131,9 @@
           "type": "script"
         },
         {
-          "id": "8",
-          "name": "TileSet",
-          "type": "tileSet"
+          "id": "20",
+          "name": "ConversionMapWorld",
+          "type": "script"
         }
       ]
     },
@@ -141,28 +153,8 @@
           "type": "sprite"
         },
         {
-          "id": "24",
-          "name": "LifeBarLeft",
-          "type": "sprite"
-        },
-        {
-          "id": "25",
-          "name": "LifeBarRight",
-          "type": "sprite"
-        },
-        {
           "id": "27",
           "name": "LifeBarMiddle",
-          "type": "sprite"
-        },
-        {
-          "id": "29",
-          "name": "FoodBarLeft",
-          "type": "sprite"
-        },
-        {
-          "id": "30",
-          "name": "FoodBarRight",
           "type": "sprite"
         },
         {
@@ -188,6 +180,90 @@
         {
           "id": "41",
           "name": "HealthBarRender",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "55",
+      "name": "Fonts",
+      "type": null,
+      "children": [
+        {
+          "id": "38",
+          "name": "Font18-20",
+          "type": "font"
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "name": "GameManager",
+      "type": "script"
+    },
+    {
+      "id": "35",
+      "name": "G",
+      "type": "script"
+    },
+    {
+      "id": "37",
+      "name": "CameraBehavior",
+      "type": "script"
+    },
+    {
+      "id": "54",
+      "name": "OLD",
+      "type": null,
+      "children": [
+        {
+          "id": "10",
+          "name": "TilemapGeneratorTest",
+          "type": "scene"
+        },
+        {
+          "id": "24",
+          "name": "LifeBarLeft",
+          "type": "sprite"
+        },
+        {
+          "id": "25",
+          "name": "LifeBarRight",
+          "type": "sprite"
+        },
+        {
+          "id": "29",
+          "name": "FoodBarLeft",
+          "type": "sprite"
+        },
+        {
+          "id": "30",
+          "name": "FoodBarRight",
+          "type": "sprite"
+        },
+        {
+          "id": "13",
+          "name": "CameraTestBehavior",
+          "type": "script"
+        },
+        {
+          "id": "4",
+          "name": "Tile Set OLD",
+          "type": "tileSet"
+        },
+        {
+          "id": "6",
+          "name": "Map OLD",
+          "type": "tileMap"
+        },
+        {
+          "id": "7",
+          "name": "MapGenerator",
+          "type": "script"
+        },
+        {
+          "id": "3",
+          "name": "Behavior",
           "type": "script"
         }
       ]
