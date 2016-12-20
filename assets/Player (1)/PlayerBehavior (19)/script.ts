@@ -23,9 +23,22 @@ class PlayerBehavior2 extends Sup.Behavior
   update() 
   {
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
-    
     let velocity = this.actor.arcadeBody2D.getVelocity();
+    this.rightLeftMovement(velocity);
     
+    if(this.actor.spriteRenderer.getAnimation() == "Climb")
+    {
+      this.ladderMovement(velocity);
+    }
+    else
+    {
+      this.normalMovement(velocity);
+    }
+    this.actor.arcadeBody2D.setVelocity(velocity);
+  }
+  
+  rightLeftMovement(velocity)
+  {
     if (Sup.Input.isKeyDown("LEFT")) 
     {
       velocity.x = -this.speed;
@@ -38,10 +51,10 @@ class PlayerBehavior2 extends Sup.Behavior
     } 
     else 
       velocity.x = 0;
-    
-    
-    if(this.actor.spriteRenderer.getAnimation() == "Climb")
-    {
+  }
+  
+  ladderMovement(velocity)
+  {
       if (Sup.Input.isKeyDown("UP")) 
       { 
         velocity.y = this.speed;
@@ -65,10 +78,11 @@ class PlayerBehavior2 extends Sup.Behavior
         this.actor.spriteRenderer.setAnimation("Fall");
         Sup.ArcadePhysics2D.setGravity(0, -0.02);
       }
-    }
-    else
-    {
-      if (this.actor.arcadeBody2D.getTouches().bottom) 
+  }
+  
+  normalMovement(velocity)
+  {
+    if (this.actor.arcadeBody2D.getTouches().bottom) 
       {
         if (Sup.Input.wasKeyJustPressed("UP")) {
           let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
@@ -106,8 +120,6 @@ class PlayerBehavior2 extends Sup.Behavior
           }
 
       }
-    }
-    this.actor.arcadeBody2D.setVelocity(velocity);
   }
 }
 Sup.registerBehavior(PlayerBehavior2);
