@@ -73,6 +73,14 @@ class PlayerBehavior2 extends Sup.Behavior
         this.actor.spriteRenderer.setAnimation("Fall");
         Sup.ArcadePhysics2D.setGravity(0, -0.02);
       }
+      if(velocity.y == 0)
+        {
+          this.actor.spriteRenderer.pauseAnimation();
+        }
+      else
+        {
+          this.actor.spriteRenderer.playAnimation();
+        }
   }
   
   normalMovement(velocity)
@@ -116,5 +124,7 @@ class PlayerBehavior2 extends Sup.Behavior
 
       }
   }
+  
+  
 }
 Sup.registerBehavior(PlayerBehavior2);
