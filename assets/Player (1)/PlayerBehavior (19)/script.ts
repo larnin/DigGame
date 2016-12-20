@@ -8,11 +8,6 @@ class PlayerBehavior2 extends Sup.Behavior
   maprenderer = null;
   tilemap = null;
   
-  tilemapID: {[name:string]: number} = 
-    {
-      "ladder":  9,
-    };
-  
   awake()
   {
       this.map = Sup.getActor("Map");
@@ -73,7 +68,7 @@ class PlayerBehavior2 extends Sup.Behavior
           this.actor.spriteRenderer.setAnimation("Idle");
         }
       let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
-      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) != this.tilemapID["ladder"])
+      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) != ladderID)
       {
         this.actor.spriteRenderer.setAnimation("Fall");
         Sup.ArcadePhysics2D.setGravity(0, -0.02);
@@ -86,7 +81,7 @@ class PlayerBehavior2 extends Sup.Behavior
       {
         if (Sup.Input.wasKeyJustPressed("UP")) {
           let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
-          if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == this.tilemapID["ladder"])
+          if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == ladderID)
           {
              this.actor.spriteRenderer.setAnimation("Climb");
              Sup.ArcadePhysics2D.setGravity(0, 0);
@@ -106,7 +101,7 @@ class PlayerBehavior2 extends Sup.Behavior
       else 
       {
         let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
-        if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == this.tilemapID["ladder"] && (Sup.Input.isKeyDown("UP") || Sup.Input.isKeyDown("DOWN")))
+        if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == ladderID && (Sup.Input.isKeyDown("UP") || Sup.Input.isKeyDown("DOWN")))
           {
               this.actor.spriteRenderer.setAnimation("Climb");
               Sup.ArcadePhysics2D.setGravity(0, 0);    
