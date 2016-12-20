@@ -139,9 +139,9 @@ class PlayerBehavior2 extends Sup.Behavior
 
     if(this.mouseNearlyPlayer(playerPosition,mousePositionInTilemap))
       {
-        if(Sup.Input.isMouseButtonDown(2))
+        if(Sup.Input.wasMouseButtonJustPressed(2))
         {
-          placeLadder(this.tilemap,mousePositionInTilemap.x,mousePositionInTilemap.y);  
+          placeLadder(this.tilemap,Math.floor(mousePositionInTilemap.x),Math.floor(mousePositionInTilemap.y));  
         }
       }
   }
