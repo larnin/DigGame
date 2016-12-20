@@ -54,8 +54,8 @@ class PlayerBehavior2 extends Sup.Behavior
           Sup.ArcadePhysics2D.setGravity(0, -0.02);
           this.actor.spriteRenderer.setAnimation("Idle");
         }
-      let toto = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
-      if(this.tilemap.getTileAt(0,withoutDecimal(toto.x),withoutDecimal(toto.y)) != 9)
+      let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
+      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) != 9)
       {
         this.actor.spriteRenderer.setAnimation("Fall");
         Sup.ArcadePhysics2D.setGravity(0, -0.02);
