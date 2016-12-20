@@ -22,6 +22,7 @@ class GameManagerBehavior extends Sup.Behavior
     this.map = map.tileMapRenderer.getTileMap();
     
     G.sys.gameManager = this;
+    renderAll(this.map);
   }
   
   onDestroy()
