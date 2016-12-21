@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 56,
+  "nextEntryId": 67,
   "nodes": [
     {
       "id": "0",
@@ -163,6 +163,11 @@
           "type": "sprite"
         },
         {
+          "id": "65",
+          "name": "FoodBarMiddleBig",
+          "type": "sprite"
+        },
+        {
           "id": "33",
           "name": "OreViewer",
           "type": "sprite"
@@ -181,6 +186,53 @@
           "id": "41",
           "name": "HealthBarRender",
           "type": "script"
+        },
+        {
+          "id": "58",
+          "name": "Shop",
+          "type": null,
+          "children": [
+            {
+              "id": "57",
+              "name": "ShopPrefab",
+              "type": "scene"
+            },
+            {
+              "id": "59",
+              "name": "ShopBack",
+              "type": "sprite"
+            },
+            {
+              "id": "60",
+              "name": "BoneSmall",
+              "type": "sprite"
+            },
+            {
+              "id": "61",
+              "name": "ButtonBig",
+              "type": "sprite"
+            },
+            {
+              "id": "62",
+              "name": "ButtonSmall",
+              "type": "sprite"
+            },
+            {
+              "id": "63",
+              "name": "ButtonBigGrey",
+              "type": "sprite"
+            },
+            {
+              "id": "64",
+              "name": "ButtonSmallGrey",
+              "type": "sprite"
+            },
+            {
+              "id": "66",
+              "name": "ShopBehaviour",
+              "type": "script"
+            }
+          ]
         }
       ]
     },
