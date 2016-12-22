@@ -37,6 +37,7 @@ class PlayerBehavior2 extends Sup.Behavior
           this.actor.spriteRenderer.setAnimation("Idle");
           this.attacktarget = null;
           this.attackvalue = 0;
+          this.moving = true;
         }
       }
     if(this.actor.spriteRenderer.getAnimation() == "Climb")
