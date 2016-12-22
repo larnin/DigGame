@@ -8,7 +8,9 @@ class PlayerBehavior2 extends Sup.Behavior
   maprenderer = null;
   tilemap = null;
   camera = null;
-  inventory = null;
+  
+  attacktarget = null;
+  moving = true;
   
   awake()
   {
@@ -16,8 +18,6 @@ class PlayerBehavior2 extends Sup.Behavior
       this.maprenderer = this.map.tileMapRenderer;
       this.tilemap =  this.maprenderer.getTileMap();
       this.camera = Sup.getActor("Camera");
-      this.inventory = new PlayerData();
-    this.inventory.ladders = 10;
   }
   
   update() 
@@ -42,11 +42,13 @@ class PlayerBehavior2 extends Sup.Behavior
   {
     if (Sup.Input.isKeyDown("LEFT")) 
     {
+      this.moving = true;
       velocity.x = -this.speed;
       this.actor.spriteRenderer.setHorizontalFlip(true);
     } 
     else if (Sup.Input.isKeyDown("RIGHT")) 
     {
+      this.moving = true;
       velocity.x = this.speed;
       this.actor.spriteRenderer.setHorizontalFlip(false);
     } 
@@ -56,13 +58,14 @@ class PlayerBehavior2 extends Sup.Behavior
   
   ladderMovement(velocity)
   {
+      this.moving = true;
       if (Sup.Input.isKeyDown("UP")) 
       { 
         velocity.y = this.speed;
       }
       else if (Sup.Input.isKeyDown("DOWN"))
       {
-          velocity.y = -this.speed; 
+        velocity.y = -this.speed;
       }
       else
       {
@@ -94,6 +97,7 @@ class PlayerBehavior2 extends Sup.Behavior
     if (this.actor.arcadeBody2D.getTouches().bottom) 
       {
         if (Sup.Input.wasKeyJustPressed("UP")) {
+          this.moving = true;
           let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
           if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == ladderID)
           {
@@ -108,8 +112,13 @@ class PlayerBehavior2 extends Sup.Behavior
         } 
         else 
         {
-          if (velocity.x === 0) this.actor.spriteRenderer.setAnimation("Idle");
-          else this.actor.spriteRenderer.setAnimation("Run");
+          if (velocity.x == 0)
+            {
+            if(this.moving)
+              this.actor.spriteRenderer.setAnimation("Idle");
+            }
+          else 
+            this.actor.spriteRenderer.setAnimation("Run");
         }
       } 
       else 
@@ -147,10 +156,19 @@ class PlayerBehavior2 extends Sup.Behavior
           if(this.canPlaceLadder(mousePositionInTilemap))
             {
               placeLadder(this.tilemap,Math.floor(mousePositionInTilemap.x),Math.floor(mousePositionInTilemap.y));
-              this.inventory.ladders--;
-              this.inventory.energy--;
+              G.sys.playerData.ladders--;
+              G.sys.playerData.energy--;
             }
         }
+        if(Sup.Input.wasMouseButtonJustPressed(0))
+          {
+            if(this.canMining(mousePositionInTilemap))
+              {
+                this.moving = false;
+                this.actor.spriteRenderer.setAnimation("Attack");
+                this.attacktarget = mousePositionInTilemap;
+              }
+          }
       }
   }
   
@@ -178,10 +196,20 @@ class PlayerBehavior2 extends Sup.Behavior
   canPlaceLadder(mousePosition) : boolean
   {
     let result = false;
-    if(this.inventory.ladders > 0)
+    if(G.sys.playerData.ladders > 0)
       if(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)) == airID)
         if(this.actor.spriteRenderer.getAnimation() != "Jump" && this.actor.spriteRenderer.getAnimation() != "Fall")
           result = true;
+    return result;
+  }
+  
+  canMining(mousePosition) : boolean
+  {
+    let result = false;
+    if(this.actor.spriteRenderer.getAnimation() == "Idle")
+      {
+        result = true;
+      }
     return result;
   }
 }

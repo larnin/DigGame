@@ -51,8 +51,12 @@
           "type": "any"
         },
         {
-          "name": "inventory",
+          "name": "attacktarget",
           "type": "any"
+        },
+        {
+          "name": "moving",
+          "type": "boolean"
         }
       ]
     },
