@@ -10,6 +10,7 @@ class PlayerBehavior2 extends Sup.Behavior
   camera = null;
   
   attacktarget = null;
+  attackvalue = 0;
   moving = true;
   
   awake()
@@ -18,6 +19,8 @@ class PlayerBehavior2 extends Sup.Behavior
       this.maprenderer = this.map.tileMapRenderer;
       this.tilemap =  this.maprenderer.getTileMap();
       this.camera = Sup.getActor("Camera");
+      G.sys.playerData.miningSpeed = 0.1;
+      G.sys.playerData.miningLvl = 1;
   }
   
   update() 
@@ -25,7 +28,17 @@ class PlayerBehavior2 extends Sup.Behavior
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
     let velocity = this.actor.arcadeBody2D.getVelocity();
     this.rightLeftMovement(velocity);
-    
+    if(this.actor.spriteRenderer.getAnimation() == "Attack")
+      {
+        this.attackvalue += G.sys.playerData.miningSpeed;
+        if(this.attackvalue > durabilityOf(this.tilemap.getTileAt(0,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y))))
+        {
+          breakBlock(this.tilemap,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y));
+          this.actor.spriteRenderer.setAnimation("Idle");
+          this.attacktarget = null;
+          this.attackvalue = 0;
+        }
+      }
     if(this.actor.spriteRenderer.getAnimation() == "Climb")
     {
       this.ladderMovement(velocity);
@@ -164,9 +177,21 @@ class PlayerBehavior2 extends Sup.Behavior
           {
             if(this.canMining(mousePositionInTilemap))
               {
-                this.moving = false;
-                this.actor.spriteRenderer.setAnimation("Attack");
-                this.attacktarget = mousePositionInTilemap;
+                if(this.actor.spriteRenderer.getAnimation() == "Attack")
+                  {
+                    if(mousePositionInTilemap != this.attacktarget)
+                      {
+                        this.attacktarget = mousePositionInTilemap;
+                        this.attackvalue = 0;
+                      }
+                  }
+                else
+                {
+                  this.moving = false;
+                  this.actor.spriteRenderer.setAnimation("Attack");
+                  this.attacktarget = mousePositionInTilemap; 
+                  this.attackvalue = 0;
+                }
               }
           }
       }
@@ -206,9 +231,12 @@ class PlayerBehavior2 extends Sup.Behavior
   canMining(mousePosition) : boolean
   {
     let result = false;
-    if(this.actor.spriteRenderer.getAnimation() == "Idle")
+    if(this.actor.spriteRenderer.getAnimation() == "Idle" || this.actor.spriteRenderer.getAnimation() == "Attack")
       {
-        result = true;
+        if(G.sys.playerData.miningLvl >= blockDifficultyOf(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y))))
+          {
+            result = true; 
+          }
       }
     return result;
   }

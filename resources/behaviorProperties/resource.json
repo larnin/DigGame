@@ -55,6 +55,10 @@
           "type": "any"
         },
         {
+          "name": "attackvalue",
+          "type": "number"
+        },
+        {
           "name": "moving",
           "type": "boolean"
         }
