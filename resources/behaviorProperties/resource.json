@@ -49,6 +49,10 @@
         {
           "name": "camera",
           "type": "any"
+        },
+        {
+          "name": "inventory",
+          "type": "any"
         }
       ]
     },

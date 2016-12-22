@@ -8,6 +8,7 @@ class PlayerBehavior2 extends Sup.Behavior
   maprenderer = null;
   tilemap = null;
   camera = null;
+  inventory = null;
   
   awake()
   {
@@ -15,6 +16,8 @@ class PlayerBehavior2 extends Sup.Behavior
       this.maprenderer = this.map.tileMapRenderer;
       this.tilemap =  this.maprenderer.getTileMap();
       this.camera = Sup.getActor("Camera");
+      this.inventory = new PlayerData();
+    this.inventory.ladders = 10;
   }
   
   update() 
@@ -141,7 +144,12 @@ class PlayerBehavior2 extends Sup.Behavior
       {
         if(Sup.Input.wasMouseButtonJustPressed(2))
         {
-          placeLadder(this.tilemap,Math.floor(mousePositionInTilemap.x),Math.floor(mousePositionInTilemap.y));  
+          if(this.canPlaceLadder(mousePositionInTilemap))
+            {
+              placeLadder(this.tilemap,Math.floor(mousePositionInTilemap.x),Math.floor(mousePositionInTilemap.y));
+              this.inventory.ladders--;
+              this.inventory.energy--;
+            }
         }
       }
   }
@@ -165,6 +173,16 @@ class PlayerBehavior2 extends Sup.Behavior
       return true;
     else
       return false;
+  }
+  
+  canPlaceLadder(mousePosition) : boolean
+  {
+    let result = false;
+    if(this.inventory.ladders > 0)
+      if(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)) == airID)
+        if(this.actor.spriteRenderer.getAnimation() != "Jump" && this.actor.spriteRenderer.getAnimation() != "Fall")
+          result = true;
+    return result;
   }
 }
 Sup.registerBehavior(PlayerBehavior2);
