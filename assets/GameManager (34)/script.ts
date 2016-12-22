@@ -33,6 +33,10 @@ class GameManagerBehavior extends Sup.Behavior
     G.sys.playerData.silver = 4;
     G.sys.playerData.gold = 3;
     G.sys.playerData.diamond = 2;
+    G.sys.playerData.bones = 500;
+    G.sys.playerData.ladders = 23;
+    G.sys.playerData.life = 5;
+    G.sys.playerData.energy = 20;
     
     this.openShop();
   }

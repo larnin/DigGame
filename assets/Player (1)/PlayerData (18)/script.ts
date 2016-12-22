@@ -9,10 +9,10 @@ class PlayerData
   energyMax = 100;
   energy = this.energyMax;
 
-  energyLvl = 0;
-  miningLvl = 0;
+  energyLvl = 1;
+  miningLvl = 1;
   miningSpeed = 0;
-  inventoryLvl = 0;
+  inventoryLvl = 1;
   inventorySize = 5;
   coal = 0;
   iron = 0;
