@@ -28,12 +28,6 @@ class GameManagerBehavior extends Sup.Behavior
   {
     renderAll(this.map);
     
-    G.sys.playerData.coal = 6;
-    G.sys.playerData.iron = 5;
-    G.sys.playerData.silver = 4;
-    G.sys.playerData.gold = 3;
-    G.sys.playerData.diamond = 2;
-    
     //this.openShop();
   }
   
