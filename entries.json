@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 67,
+  "nextEntryId": 68,
   "nodes": [
     {
       "id": "0",
@@ -231,6 +231,11 @@
               "id": "66",
               "name": "ShopBehaviour",
               "type": "script"
+            },
+            {
+              "id": "67",
+              "name": "DarkBack",
+              "type": "sprite"
             }
           ]
         }

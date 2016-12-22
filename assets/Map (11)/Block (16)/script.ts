@@ -109,19 +109,19 @@ function isBreakableBlock(id : number) : boolean
 function blockDifficultyOf(id : number) : number //mining level
 {
   if(id == coalID || id == chestID)
-    return 0;
-  if(id == ironID)
     return 1;
+  if(id == ironID)
+    return 2;
   if(id == silverID)
-    return 2;
-  if(id == goldID)
     return 3;
-  if(id == diamondID)
+  if(id == goldID)
     return 4;
+  if(id == diamondID)
+    return 5;
   if(isDirt(id))
-    return 0;
+    return 1;
   if(isStone(id))
-    return 2;
+    return 3;
   return 100;
 }
 

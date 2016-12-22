@@ -280,7 +280,7 @@
                 }
               ],
               "position": {
-                "x": 3.4515862464904785,
+                "x": 3.4094367027282715,
                 "y": 0.03746509552001953,
                 "z": 0
               },
@@ -1498,6 +1498,50 @@
           "visible": true,
           "layer": 0,
           "prefab": null
+        },
+        {
+          "id": "36",
+          "name": "Dark",
+          "children": [],
+          "components": [
+            {
+              "type": "SpriteRenderer",
+              "config": {
+                "formatVersion": 1,
+                "spriteAssetId": "67",
+                "animationId": null,
+                "horizontalFlip": false,
+                "verticalFlip": false,
+                "castShadow": false,
+                "receiveShadow": false,
+                "color": "ffffff",
+                "overrideOpacity": true,
+                "opacity": 0.5,
+                "materialType": "basic",
+                "shaderAssetId": null
+              },
+              "id": "0"
+            }
+          ],
+          "position": {
+            "x": -0.123,
+            "y": 0.321,
+            "z": -0.1
+          },
+          "orientation": {
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "w": 1
+          },
+          "scale": {
+            "x": 300,
+            "y": 100,
+            "z": 100
+          },
+          "visible": true,
+          "layer": 0,
+          "prefab": null
         }
       ],
       "components": [
@@ -1518,6 +1562,14 @@
             "shaderAssetId": null
           },
           "id": "0"
+        },
+        {
+          "type": "Behavior",
+          "config": {
+            "behaviorName": "ShopBehavior",
+            "propertyValues": {}
+          },
+          "id": "1"
         }
       ],
       "position": {

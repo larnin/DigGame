@@ -1,5 +1,7 @@
 class PlayerData
 {
+  canMove = true;
+
   bones = 0;
   ladders = 0;
   lifeMax = 10;
@@ -9,6 +11,7 @@ class PlayerData
 
   energyLvl = 0;
   miningLvl = 0;
+  miningSpeed = 0;
   inventoryLvl = 0;
   inventorySize = 5;
   coal = 0;

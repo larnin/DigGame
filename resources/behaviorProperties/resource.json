@@ -165,11 +165,16 @@
         }
       ]
     },
-    "ScriptBehavior": {
+    "ShopBehavior": {
       "scriptId": "66",
-      "line": 0,
+      "line": 14,
       "parentBehavior": null,
-      "properties": []
+      "properties": [
+        {
+          "name": "barsSize",
+          "type": "number"
+        }
+      ]
     }
   }
 }
