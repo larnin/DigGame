@@ -27,8 +27,6 @@ class GameManagerBehavior extends Sup.Behavior
   start()
   {
     renderAll(this.map);
-    
-    //this.openShop();
   }
   
   onDestroy()

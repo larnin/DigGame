@@ -2,18 +2,19 @@ class PlayerData
 {
   canMove = true;
 
+  energyLvl = 1;
+  miningLvl = 5;
+  inventoryLvl = 1;
+
   bones = 0;
   ladders = 0;
-  lifeMax = 10;
+  lifeMax = 100;
   life = this.lifeMax;
-  energyMax = 100;
+  energyMax = foodSize(this.energyLvl);
   energy = this.energyMax;
 
-  energyLvl = 1;
-  miningLvl = 1;
-  miningSpeed = 0;
-  inventoryLvl = 1;
-  inventorySize = 5;
+  miningSpeed = pickSpeed(this.miningLvl);
+  inventorySize = inventorySize(this.inventoryLvl);
   coal = 0;
   iron = 0;
   silver = 0;

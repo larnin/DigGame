@@ -19,8 +19,6 @@ class PlayerBehavior2 extends Sup.Behavior
       this.maprenderer = this.map.tileMapRenderer;
       this.tilemap =  this.maprenderer.getTileMap();
       this.camera = Sup.getActor("Camera");
-      G.sys.playerData.miningSpeed = 0.1;
-      G.sys.playerData.miningLvl = 1;
   }
   
   update() 

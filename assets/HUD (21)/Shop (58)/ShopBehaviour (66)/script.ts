@@ -215,32 +215,72 @@ class ShopBehavior extends Sup.Behavior
   
   onFoodButtonClick() : void
   {
-    
+    let foodPrice = Math.floor((G.sys.playerData.energyMax-G.sys.playerData.energy)*foodValue);
+    if(foodPrice < 0 || foodPrice > G.sys.playerData.bones)
+      return;
+    G.sys.playerData.bones -= foodPrice;
+    G.sys.playerData.energy = G.sys.playerData.energyMax;
+    this.renderAll();
   }
   
   onLadder1ButtonClick() : void
   {
-    
+    if(ladder1Value > G.sys.playerData.bones)
+      return;
+    G.sys.playerData.bones -= ladder1Value;
+    G.sys.playerData.ladders ++;
+    this.renderAll();
   }
   
   onLadder20ButtonClick() : void
   {
-    
+    if(ladder20Value > G.sys.playerData.bones)
+      return;
+    G.sys.playerData.bones -= ladder20Value;
+    G.sys.playerData.ladders += 20;
+    this.renderAll();
   }
   
   onPickLvlButtonClick() : void
   {
+    if(G.sys.playerData.miningLvl >= maxPickLevel)
+      return;
     
+    let pickPrice = pickLevelPrice(G.sys.playerData.miningLvl+1);
+    if(pickPrice > G.sys.playerData.bones)
+      return;
+    G.sys.playerData.bones -= pickPrice;
+    G.sys.playerData.miningLvl++;
+    G.sys.playerData.miningSpeed = pickSpeed(G.sys.playerData.miningLvl);
+    this.renderAll();
   }
   
   onFoodLvlButtonClick() : void
   {
+    if(G.sys.playerData.energyLvl >= maxFoodLevel)
+      return;
     
+    let foodPrice = foodLevelPrice(G.sys.playerData.energyLvl+1);
+    if(foodPrice > G.sys.playerData.bones)
+      return;
+    G.sys.playerData.bones -= foodPrice;
+    G.sys.playerData.energyLvl++;
+    G.sys.playerData.energyMax = foodSize(G.sys.playerData.energyLvl);
+    this.renderAll();
   }
   
   onInvLvlButtonClick() : void
   {
+    if(G.sys.playerData.inventoryLvl >= maxInventoryLevel)
+      return;
     
+    let invPrice = invLevelPrice(G.sys.playerData.inventoryLvl+1);
+    if(invPrice > G.sys.playerData.bones)
+      return;
+    G.sys.playerData.bones -= invPrice;
+    G.sys.playerData.inventoryLvl++;
+    G.sys.playerData.inventorySize = inventorySize(G.sys.playerData.inventoryLvl);
+    this.renderAll();
   }
   
   onExitButtonClick() : void
@@ -250,7 +290,7 @@ class ShopBehavior extends Sup.Behavior
 }
 Sup.registerBehavior(ShopBehavior);
 
-function pickSpeec(level : number) : number
+function pickSpeed(level : number) : number
 {
   return Math.sqrt(level);
 }

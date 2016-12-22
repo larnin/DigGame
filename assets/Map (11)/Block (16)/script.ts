@@ -13,12 +13,12 @@ const chestID = 11;
 const openChestID = 12;
 
 const dirtDurability = 5;
-const stoneDurability = 10;
-const coalDurability = 10;
-const ironDurability = 15;
-const silverDurability = 20;
-const goldDurability = 25;
-const diamondDurability = 40;
+const stoneDurability = 25;
+const coalDurability = 15;
+const ironDurability = 30;
+const silverDurability = 60;
+const goldDurability = 120;
+const diamondDurability = 250;
 
 function isCollisionLayer(id : number) : boolean
 {
