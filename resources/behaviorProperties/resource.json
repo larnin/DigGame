@@ -116,6 +116,10 @@
         {
           "name": "moveSpeed",
           "type": "number"
+        },
+        {
+          "name": "maxWidth",
+          "type": "number"
         }
       ]
     },

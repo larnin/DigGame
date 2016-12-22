@@ -1,33 +1,33 @@
 const grassRenderOffset = 16;
-const dirtRenderOffset = 32;
-const stoneRenderOffset = 80;
-const hardStoneRenderOffset = 128;
+const dirtRenderOffset = 64;
+const stoneRenderOffset = 112;
+const hardStoneRenderOffset = 160;
 
 const oreRenderSize = 3;
-const coalRenderOffset = 176;
-const ironRenderOffset = 179;
-const silverRenderOffset = 182;
-const goldRenderOffset = 185;
-const diamondRenderOffset = 188;
+const coalRenderOffset = 208;
+const ironRenderOffset = 211;
+const silverRenderOffset = 214;
+const goldRenderOffset = 217;
+const diamondRenderOffset = 220;
 
-const decorationRenderStart = 208;
+const decorationRenderStart = 240;
 const decorationRenderSize = 9;
 const decorationDoubleProbability = 0.5;
-const decorationDoubleID = 216;
-const decorationDoubleIDExtention = 217;
+const decorationDoubleID = 248;
+const decorationDoubleIDExtention = 249;
 const decorationDirtProbability = 0.02;
 const decorationStoneProbability = 0.1;
 
-const ladderSingleRenderID = 192;
-const ladderTopRenderID = 193;
-const ladderCenterRenderID = 194;
-const ladderBottomRenderID = 195;
+const ladderSingleRenderID = 224;
+const ladderTopRenderID = 225;
+const ladderCenterRenderID = 226;
+const ladderBottomRenderID = 227;
 
-const chestRenderID = 198;
-const openChestRenderID = 199;
+const chestRenderID = 230;
+const openChestRenderID = 231;
 
-const graveRenderID1 = 196;
-const graveRenderID2 = 197;
+const graveRenderID1 = 228;
+const graveRenderID2 = 229;
 
 class NearBlocks
 {
@@ -331,11 +331,11 @@ function setBlock(map : Sup.TileMap, id : number, x : number, y : number, overri
     renderBlock(map, x+1, y-1);
   if(x < map.getWidth()-1)
     renderBlock(map, x+1, y);
-  if(x < map.getWidth()-1, y < map.getHeight()-1)
+  if(x < map.getWidth()-1 && y < map.getHeight()-1)
     renderBlock(map, x+1, y+1);
   if(y < map.getHeight()-1)
     renderBlock(map, x, y+1);
-  if(x > 0 && y < map.getWidth()-1)
+  if(x > 0 && y < map.getHeight()-1)
     renderBlock(map, x-1, y+1);
 }
 

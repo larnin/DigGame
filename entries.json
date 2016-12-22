@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 69,
+  "nextEntryId": 70,
   "nodes": [
     {
       "id": "0",
@@ -95,11 +95,6 @@
       "name": "Map",
       "type": null,
       "children": [
-        {
-          "id": "9",
-          "name": "Map Test",
-          "type": "tileMap"
-        },
         {
           "id": "12",
           "name": "EmptyTilemap",
@@ -327,6 +322,11 @@
           "id": "3",
           "name": "Behavior",
           "type": "script"
+        },
+        {
+          "id": "9",
+          "name": "Map Test",
+          "type": "tileMap"
         }
       ]
     }

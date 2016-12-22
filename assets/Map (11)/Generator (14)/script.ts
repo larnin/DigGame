@@ -22,6 +22,9 @@ const diamondHeight = grassHeight-50;
 const diamondProbability = 0.02;
 const oreTransitionSize = 20;
 
+const shopY = grassHeight+1;
+const shopX = 0.6;
+
 function generate(map : Sup.TileMap) : void
 {
   for(let i = 0 ; i < map.getWidth() ; i++)
@@ -30,6 +33,8 @@ function generate(map : Sup.TileMap) : void
   
   placeHoles(map);
   placeOres(map);
+  
+  placeShop(map);
 }
 
 function placeMineralLayer(x : number, y : number, width : number, height : number) : number
@@ -103,6 +108,11 @@ function placeOres(map : Sup.TileMap) : void
           map.setTileAt(0, i, j, diamondID);
       }
     }
+}
+
+function placeShop(map : Sup.TileMap)
+{
+  map.setTileAt(0, Math.floor(shopX*map.getWidth()), shopY, shopID);
 }
 
 function probabilityLinear(minRange : number, maxRange : number, value : number, minProbability : number, maxProbability : number) : number

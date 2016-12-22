@@ -292,7 +292,7 @@ Sup.registerBehavior(ShopBehavior);
 
 function pickSpeed(level : number) : number
 {
-  return Math.sqrt(level);
+  return 0.1*Math.sqrt(level);
 }
 
 function foodSize(level : number) : number

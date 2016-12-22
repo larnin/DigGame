@@ -653,7 +653,7 @@
       ],
       "position": {
         "x": 0,
-        "y": 0,
+        "y": 190,
         "z": 10
       },
       "orientation": {
@@ -687,7 +687,7 @@
               "x": 0,
               "y": 0
             },
-            "tileMapAssetId": "9",
+            "tileMapAssetId": "12",
             "tileSetPropertyName": "Collision",
             "layersIndex": "0",
             "formatVersion": 2,
@@ -702,7 +702,7 @@
           "type": "TileMapRenderer",
           "config": {
             "formatVersion": 1,
-            "tileMapAssetId": "9",
+            "tileMapAssetId": "12",
             "tileSetAssetId": null,
             "castShadow": false,
             "receiveShadow": false,
@@ -713,9 +713,9 @@
         }
       ],
       "position": {
-        "x": -30,
-        "y": -18.5,
-        "z": 0
+        "x": -40,
+        "y": 0,
+        "z": -10
       },
       "orientation": {
         "x": 0,
@@ -787,8 +787,8 @@
         }
       ],
       "position": {
-        "x": 0.7824025750160217,
-        "y": 14.69682502746582,
+        "x": 0,
+        "y": 192,
         "z": 1
       },
       "orientation": {

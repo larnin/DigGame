@@ -3,11 +3,11 @@ class PlayerData
   canMove = true;
 
   energyLvl = 1;
-  miningLvl = 5;
+  miningLvl = 1;
   inventoryLvl = 1;
 
   bones = 0;
-  ladders = 0;
+  ladders = 5;
   lifeMax = 100;
   life = this.lifeMax;
   energyMax = foodSize(this.energyLvl);

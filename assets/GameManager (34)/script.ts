@@ -26,6 +26,7 @@ class GameManagerBehavior extends Sup.Behavior
   
   start()
   {
+    generate(this.map);
     renderAll(this.map);
   }
   
