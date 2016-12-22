@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 68,
+  "nextEntryId": 69,
   "nodes": [
     {
       "id": "0",
@@ -143,6 +143,63 @@
       "type": null,
       "children": [
         {
+          "id": "58",
+          "name": "Shop",
+          "type": null,
+          "children": [
+            {
+              "id": "57",
+              "name": "ShopPrefab",
+              "type": "scene"
+            },
+            {
+              "id": "59",
+              "name": "ShopBack",
+              "type": "sprite"
+            },
+            {
+              "id": "60",
+              "name": "BoneSmall",
+              "type": "sprite"
+            },
+            {
+              "id": "61",
+              "name": "ButtonBig",
+              "type": "sprite"
+            },
+            {
+              "id": "62",
+              "name": "ButtonSmall",
+              "type": "sprite"
+            },
+            {
+              "id": "63",
+              "name": "ButtonBigGrey",
+              "type": "sprite"
+            },
+            {
+              "id": "64",
+              "name": "ButtonSmallGrey",
+              "type": "sprite"
+            },
+            {
+              "id": "67",
+              "name": "DarkBack",
+              "type": "sprite"
+            },
+            {
+              "id": "68",
+              "name": "ButtonExit",
+              "type": "sprite"
+            },
+            {
+              "id": "66",
+              "name": "ShopBehaviour",
+              "type": "script"
+            }
+          ]
+        },
+        {
           "id": "22",
           "name": "HealthBar",
           "type": "sprite"
@@ -186,58 +243,6 @@
           "id": "41",
           "name": "HealthBarRender",
           "type": "script"
-        },
-        {
-          "id": "58",
-          "name": "Shop",
-          "type": null,
-          "children": [
-            {
-              "id": "57",
-              "name": "ShopPrefab",
-              "type": "scene"
-            },
-            {
-              "id": "59",
-              "name": "ShopBack",
-              "type": "sprite"
-            },
-            {
-              "id": "60",
-              "name": "BoneSmall",
-              "type": "sprite"
-            },
-            {
-              "id": "61",
-              "name": "ButtonBig",
-              "type": "sprite"
-            },
-            {
-              "id": "62",
-              "name": "ButtonSmall",
-              "type": "sprite"
-            },
-            {
-              "id": "63",
-              "name": "ButtonBigGrey",
-              "type": "sprite"
-            },
-            {
-              "id": "64",
-              "name": "ButtonSmallGrey",
-              "type": "sprite"
-            },
-            {
-              "id": "66",
-              "name": "ShopBehaviour",
-              "type": "script"
-            },
-            {
-              "id": "67",
-              "name": "DarkBack",
-              "type": "sprite"
-            }
-          ]
         }
       ]
     },
