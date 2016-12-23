@@ -254,7 +254,7 @@ class PlayerBehavior2 extends Sup.Behavior
     if(G.sys.playerData.ladders > 0)
       if(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)) == airID)
         if(this.actor.spriteRenderer.getAnimation() != "Jump" && this.actor.spriteRenderer.getAnimation() != "Fall")
-          if(mousePosition.y <= grassHeight)
+          if(mousePosition.y <= grassHeight+1)
             result = true;
     return result;
   }
