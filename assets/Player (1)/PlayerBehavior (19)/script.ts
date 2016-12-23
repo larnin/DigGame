@@ -13,7 +13,7 @@ class PlayerBehavior2 extends Sup.Behavior
   attackvalue = 0;
   moving = true;
   
-  lookingLeft = true;
+  lookingLeft = false;
   
   awake()
   {
@@ -21,7 +21,6 @@ class PlayerBehavior2 extends Sup.Behavior
       this.maprenderer = this.map.tileMapRenderer;
       this.tilemap =  this.maprenderer.getTileMap();
       this.ray = new Sup.Math.Ray();
-      G.sys.playerData.ladders = 10;
   }
   
   update() 
