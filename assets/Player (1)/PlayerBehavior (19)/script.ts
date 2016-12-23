@@ -209,7 +209,7 @@ class PlayerBehavior2 extends Sup.Behavior
             {
               placeLadder(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
               G.sys.playerData.ladders--;
-              G.sys.playerData.energy--;
+              G.sys.playerData.energy = G.sys.playerData.energy - LadderCost;
             }
         }
         if(Sup.Input.wasMouseButtonJustPressed(0))
@@ -247,6 +247,7 @@ class PlayerBehavior2 extends Sup.Behavior
                   if(targetID == chestID)
                     {
                       openChest(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
+                      G.sys.playerData.energy = G.sys.playerData.energy - OpenChestCost;
                     }
                   else if(targetID == shopID)
                   {

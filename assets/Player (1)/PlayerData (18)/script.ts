@@ -1,3 +1,7 @@
+const MiningCost = 1;
+const LadderCost = 1;
+const OpenChestCost = 1;
+
 class PlayerData
 {
   canMove = true;
