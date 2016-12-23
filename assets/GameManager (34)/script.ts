@@ -41,5 +41,10 @@ class GameManagerBehavior extends Sup.Behavior
     let actor = Sup.appendScene("HUD/Shop/ShopPrefab", G.sys.gameManager.camera.actor);
     actor[0].setLocalZ(-1.5);
   }
+  
+  openChest(x : number, y : number) : void
+  {
+    
+  }
 }
 Sup.registerBehavior(GameManagerBehavior);
