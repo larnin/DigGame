@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 88,
+  "nextEntryId": 89,
   "nodes": [
     {
       "id": "0",
@@ -130,6 +130,11 @@
               "name": "Background",
               "type": null,
               "children": [
+                {
+                  "id": "88",
+                  "name": "RockTop",
+                  "type": "sprite"
+                },
                 {
                   "id": "77",
                   "name": "Rock",

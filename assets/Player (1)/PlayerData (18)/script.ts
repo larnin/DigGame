@@ -3,7 +3,7 @@ class PlayerData
   canMove = true;
 
   energyLvl = 1;
-  miningLvl = 1;
+  miningLvl = 50;
   inventoryLvl = 1;
 
   bones = 0;
