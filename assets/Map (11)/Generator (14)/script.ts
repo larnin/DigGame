@@ -21,6 +21,8 @@ const goldProbabiliy = 0.025;
 const diamondHeight = grassHeight-50;
 const diamondProbability = 0.02;
 const oreTransitionSize = 20;
+const chestNumber = 10;
+const chestHeight = grassHeight-10;
 
 const shopY = grassHeight+1;
 const shopX = 0.6;
@@ -35,6 +37,8 @@ function generate(map : Sup.TileMap) : void
   placeOres(map);
   
   placeShop(map);
+  
+  placeChests(map);
 }
 
 function placeMineralLayer(x : number, y : number, width : number, height : number) : number
@@ -114,6 +118,37 @@ function placeShop(map : Sup.TileMap)
 {
   map.setTileAt(0, Math.floor(shopX*map.getWidth()), shopY, shopID);
   map.setTileAt(0, Math.floor(shopX*map.getWidth()), shopY-1, hardStoneID)
+}
+
+function placeChests(map : Sup.TileMap)
+{
+  for(let i = 0 ; i < chestNumber ; i++)
+  {
+    let x = Math.floor(Math.random()*(map.getWidth()-2))+1;
+    let y = Math.floor(Math.random()*(chestHeight-1))+1;
+    let haveChest = false;
+    for(let j = -1 ; j <= 1 ; j++)
+      for(let k = -1 ; k <= 2 ; k++)
+        {
+          if(map.getTileAt(0, x+j, y+k) == chestID)
+          {
+            haveChest = true;
+            break;
+          }
+        }
+    if(haveChest)
+    {
+      i--;
+      continue;
+    }
+    map.setTileAt(0, x, y, chestID);
+    map.setTileAt(0, x, y-1, hardStoneID);
+    map.setTileAt(0, x-1, y+1, airID);
+    map.setTileAt(0, x-1, y, airID);
+    map.setTileAt(0, x, y+1, airID);
+    map.setTileAt(0, x+1, y, airID);
+    map.setTileAt(0, x+1, y+1, airID);
+  }
 }
 
 function probabilityLinear(minRange : number, maxRange : number, value : number, minProbability : number, maxProbability : number) : number
