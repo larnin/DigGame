@@ -109,7 +109,7 @@ function isBreakableBlock(id : number) : boolean
 
 function blockDifficultyOf(id : number) : number //mining level
 {
-  if(id == coalID || id == chestID)
+  if(id == coalID || id == chestID || id == shopID)
     return 1;
   if(id == ironID)
     return 2;

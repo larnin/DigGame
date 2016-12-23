@@ -15,6 +15,7 @@ class PlayerBehavior2 extends Sup.Behavior
   
   lookingLeft = false;
   
+  
   awake()
   {
       this.map = Sup.getActor("Map");
@@ -216,10 +217,22 @@ class PlayerBehavior2 extends Sup.Behavior
                   }
                 else
                 {
-                  this.moving = false;
-                  this.actor.spriteRenderer.setAnimation("Attack");
-                  this.attacktarget = mousePosition; 
-                  this.attackvalue = 0;
+                  Sup.log(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)));
+                  if(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)) == chestID)
+                    {
+                      openChest(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
+                    }
+                  else if(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)) == shopID)
+                  {
+                    G.sys.gameManager.openShop();
+                  }
+                  else
+                  {
+                    this.moving = false;
+                    this.actor.spriteRenderer.setAnimation("Attack");
+                    this.attacktarget = mousePosition; 
+                    this.attackvalue = 0;                   
+                  }
                 }
               }
           }
