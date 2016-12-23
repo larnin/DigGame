@@ -75,6 +75,7 @@ class PlayerBehavior2 extends Sup.Behavior
             }
         }
       breakBlock(this.tilemap,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y));
+      G.sys.playerData.energy--;
       this.actor.spriteRenderer.setAnimation("Idle");
       this.attacktarget = null;
       this.attackvalue = 0;
