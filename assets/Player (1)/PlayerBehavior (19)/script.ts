@@ -190,6 +190,22 @@ class PlayerBehavior2 extends Sup.Behavior
           {
             if(this.canMining(mousePosition))
               {
+                if(mousePosition.x < playerPosition.x)
+                {
+                  if(!this.lookingLeft)
+                  {
+                    this.actor.spriteRenderer.setHorizontalFlip(true);
+                    this.lookingLeft = true;
+                  }
+                }
+                if(mousePosition.x > playerPosition.x)
+                {
+                  if(this.lookingLeft)
+                  {
+                    this.lookingLeft = false;
+                    this.actor.spriteRenderer.setHorizontalFlip(false);
+                  }
+                }
                 if(this.actor.spriteRenderer.getAnimation() == "Attack")
                   {
                     if(mousePosition != this.attacktarget)
