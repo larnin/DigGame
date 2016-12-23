@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 70,
+  "nextEntryId": 86,
   "nodes": [
     {
       "id": "0",
@@ -95,6 +95,90 @@
       "name": "Map",
       "type": null,
       "children": [
+        {
+          "id": "71",
+          "name": "Decoration",
+          "type": null,
+          "children": [
+            {
+              "id": "70",
+              "name": "Shop",
+              "type": "sprite"
+            },
+            {
+              "id": "72",
+              "name": "Barrier",
+              "type": "sprite"
+            },
+            {
+              "id": "73",
+              "name": "Bush1",
+              "type": "sprite"
+            },
+            {
+              "id": "74",
+              "name": "Bush2",
+              "type": "sprite"
+            },
+            {
+              "id": "75",
+              "name": "FireMeat",
+              "type": "sprite"
+            },
+            {
+              "id": "76",
+              "name": "Background",
+              "type": null,
+              "children": [
+                {
+                  "id": "77",
+                  "name": "Rock",
+                  "type": "sprite"
+                },
+                {
+                  "id": "78",
+                  "name": "Grass1",
+                  "type": "sprite"
+                },
+                {
+                  "id": "79",
+                  "name": "Grass2",
+                  "type": "sprite"
+                },
+                {
+                  "id": "80",
+                  "name": "Forest",
+                  "type": "sprite"
+                },
+                {
+                  "id": "81",
+                  "name": "Montain",
+                  "type": "sprite"
+                },
+                {
+                  "id": "82",
+                  "name": "Sea",
+                  "type": "sprite"
+                },
+                {
+                  "id": "83",
+                  "name": "Islands",
+                  "type": "sprite"
+                },
+                {
+                  "id": "84",
+                  "name": "Clouds",
+                  "type": "sprite"
+                },
+                {
+                  "id": "85",
+                  "name": "Sky",
+                  "type": "sprite"
+                }
+              ]
+            }
+          ]
+        },
         {
           "id": "12",
           "name": "EmptyTilemap",

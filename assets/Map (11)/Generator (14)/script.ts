@@ -113,6 +113,7 @@ function placeOres(map : Sup.TileMap) : void
 function placeShop(map : Sup.TileMap)
 {
   map.setTileAt(0, Math.floor(shopX*map.getWidth()), shopY, shopID);
+  //map.setTileAt(0, Math.floor(shopX*map.getWidth()), shopY-1, hardStoneID)
 }
 
 function probabilityLinear(minRange : number, maxRange : number, value : number, minProbability : number, maxProbability : number) : number
