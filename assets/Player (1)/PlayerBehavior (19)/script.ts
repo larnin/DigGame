@@ -7,38 +7,33 @@ class PlayerBehavior2 extends Sup.Behavior
   map = null;
   maprenderer = null;
   tilemap = null;
-  camera = null;
+  ray = null;
   
   attacktarget = null;
   attackvalue = 0;
   moving = true;
+  
+  lookingLeft = true;
   
   awake()
   {
       this.map = Sup.getActor("Map");
       this.maprenderer = this.map.tileMapRenderer;
       this.tilemap =  this.maprenderer.getTileMap();
-      this.camera = Sup.getActor("Camera");
+      this.ray = new Sup.Math.Ray();
   }
   
   update() 
   {
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
     let velocity = this.actor.arcadeBody2D.getVelocity();
+    let animation = this.actor.spriteRenderer.getAnimation();
     this.rightLeftMovement(velocity);
-    if(this.actor.spriteRenderer.getAnimation() == "Attack")
+    if(animation == "Attack")
       {
-        this.attackvalue += G.sys.playerData.miningSpeed;
-        if(this.attackvalue > durabilityOf(this.tilemap.getTileAt(0,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y))))
-        {
-          breakBlock(this.tilemap,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y));
-          this.actor.spriteRenderer.setAnimation("Idle");
-          this.attacktarget = null;
-          this.attackvalue = 0;
-          this.moving = true;
-        }
+        this.attackMode();
       }
-    if(this.actor.spriteRenderer.getAnimation() == "Climb")
+    if(animation == "Climb")
     {
       this.ladderMovement(velocity);
     }
@@ -50,19 +45,40 @@ class PlayerBehavior2 extends Sup.Behavior
     this.actor.arcadeBody2D.setVelocity(velocity);
   }
   
+  attackMode()
+  {
+    this.attackvalue += G.sys.playerData.miningSpeed;
+    if(this.attackvalue > durabilityOf(this.tilemap.getTileAt(0,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y))))
+    {
+      breakBlock(this.tilemap,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y));
+      this.actor.spriteRenderer.setAnimation("Idle");
+      this.attacktarget = null;
+      this.attackvalue = 0;
+      this.moving = true;
+    }
+  }
+  
   rightLeftMovement(velocity)
   {
     if (Sup.Input.isKeyDown("LEFT")) 
     {
       this.moving = true;
       velocity.x = -this.speed;
-      this.actor.spriteRenderer.setHorizontalFlip(true);
+      if(!this.lookingLeft)
+        {
+          this.actor.spriteRenderer.setHorizontalFlip(true);
+          this.lookingLeft = true;
+        }
     } 
     else if (Sup.Input.isKeyDown("RIGHT")) 
     {
       this.moving = true;
       velocity.x = this.speed;
-      this.actor.spriteRenderer.setHorizontalFlip(false);
+      if(this.lookingLeft)
+        {
+          this.lookingLeft = false;
+          this.actor.spriteRenderer.setHorizontalFlip(false);
+        }
     } 
     else 
       velocity.x = 0;
@@ -154,14 +170,46 @@ class PlayerBehavior2 extends Sup.Behavior
   
   mouseControl()
   {
-    let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map);  
-    let mousePosition = Sup.Input.getMousePosition();
-    let pixelMousePositionX = mousePosition.x * Sup.Input.getScreenSize().x / 2;
-    let pixelMousePositionY = mousePosition.y * Sup.Input.getScreenSize().y / 2;
-    let pixelPerUnit = this.tilemap.getPixelsPerUnit();
-    let mousePositionInTilemap = worldToMap((pixelMousePositionX/pixelPerUnit)+this.camera.getPosition().x,(pixelMousePositionY/pixelPerUnit)+this.camera.getPosition().y,this.map);
-
-    if(this.mouseNearlyPlayer(playerPosition,mousePositionInTilemap))
+    let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map);
+    this.ray.setFromCamera(G.sys.gameManager.camera,Sup.Input.getMousePosition());
+    let hits = this.ray.intersectActors([ this.map ]);
+    for (let hit of hits) {
+      let mousePosition = worldToMap(hit.point.x,hit.point.y,this.map);
+      if(this.mouseNearlyPlayer(playerPosition,mousePosition))
+      {
+        if(Sup.Input.wasMouseButtonJustPressed(2))
+        {
+          if(this.canPlaceLadder(mousePosition))
+            {
+              placeLadder(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
+              G.sys.playerData.ladders--;
+              G.sys.playerData.energy--;
+            }
+        }
+        if(Sup.Input.wasMouseButtonJustPressed(0))
+          {
+            if(this.canMining(mousePosition))
+              {
+                if(this.actor.spriteRenderer.getAnimation() == "Attack")
+                  {
+                    if(mousePosition != this.attacktarget)
+                      {
+                        this.attacktarget = mousePosition;
+                        this.attackvalue = 0;
+                      }
+                  }
+                else
+                {
+                  this.moving = false;
+                  this.actor.spriteRenderer.setAnimation("Attack");
+                  this.attacktarget = mousePosition; 
+                  this.attackvalue = 0;
+                }
+              }
+          }
+      }
+    }
+    /*if(this.mouseNearlyPlayer(playerPosition,mousePositionInTilemap))
       {
         if(Sup.Input.wasMouseButtonJustPressed(2))
         {
@@ -193,7 +241,7 @@ class PlayerBehavior2 extends Sup.Behavior
                 }
               }
           }
-      }
+      }*/
   }
   
   mouseNearlyPlayer(playerPosition,mousePosition) : boolean

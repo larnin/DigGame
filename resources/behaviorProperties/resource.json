@@ -47,7 +47,7 @@
           "type": "any"
         },
         {
-          "name": "camera",
+          "name": "ray",
           "type": "any"
         },
         {
@@ -60,6 +60,10 @@
         },
         {
           "name": "moving",
+          "type": "boolean"
+        },
+        {
+          "name": "lookingLeft",
           "type": "boolean"
         }
       ]
