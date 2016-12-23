@@ -27,23 +27,26 @@ class PlayerBehavior2 extends Sup.Behavior
   update() 
   {
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
-    let velocity = this.actor.arcadeBody2D.getVelocity();
-    let animation = this.actor.spriteRenderer.getAnimation();
-    this.rightLeftMovement(velocity);
-    if(animation == "Attack")
+    if(G.sys.playerData.canMove)
       {
-        this.attackMode();
+        let velocity = this.actor.arcadeBody2D.getVelocity();
+        let animation = this.actor.spriteRenderer.getAnimation();
+        this.rightLeftMovement(velocity);
+        if(animation == "Attack")
+          {
+            this.attackMode();
+          }
+        if(animation == "Climb")
+          {
+            this.ladderMovement(velocity);
+          }
+        else
+          {
+            this.normalMovement(velocity);
+          }
+        this.mouseControl();
+        this.actor.arcadeBody2D.setVelocity(velocity);
       }
-    if(animation == "Climb")
-    {
-      this.ladderMovement(velocity);
-    }
-    else
-    {
-      this.normalMovement(velocity);
-    }
-    this.mouseControl();
-    this.actor.arcadeBody2D.setVelocity(velocity);
   }
   
   attackMode()

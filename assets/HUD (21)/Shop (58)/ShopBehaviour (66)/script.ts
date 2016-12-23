@@ -60,6 +60,7 @@ class ShopBehavior extends Sup.Behavior
     this.renderAndSellOres();
     
     this.renderAll();
+    G.sys.playerData.canMove = false;
   }
 
   update() 
@@ -285,7 +286,7 @@ class ShopBehavior extends Sup.Behavior
   
   onExitButtonClick() : void
   {
-    G.sys.playerData.canMove = false;
+    G.sys.playerData.canMove = true;
     this.actor.destroy();
   }
 }
