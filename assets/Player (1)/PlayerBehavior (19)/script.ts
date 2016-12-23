@@ -274,7 +274,45 @@ class PlayerBehavior2 extends Sup.Behavior
       {
         if(this.testProxymity(Math.floor(playerPosition.y),Math.floor(mousePosition.y)))
           {
-            result = true;
+            if(Math.floor(playerPosition.x) == Math.floor(mousePosition.x) || Math.floor(playerPosition.y) == Math.floor(mousePosition.y))
+              result = true;
+            else
+            {
+              if(mousePosition.x > playerPosition.x)
+                {
+                  if(mousePosition.y > playerPosition.y)
+                    {
+                      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)+1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)+1,Math.floor(playerPosition.y)) == airID  )
+                        {
+                          result = true; 
+                        }
+                    }
+                  else
+                  {
+                    if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)-1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)+1,Math.floor(playerPosition.y)) == airID  )
+                        {
+                          result = true; 
+                        }
+                  }
+                }
+              else
+              {
+                if(mousePosition.y > playerPosition.y)
+                    {
+                      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)+1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)-1,Math.floor(playerPosition.y)) == airID  )
+                        {
+                          result = true; 
+                        }
+                    }
+                  else
+                  {
+                    if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)-1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)-1,Math.floor(playerPosition.y)) == airID  )
+                        {
+                          result = true; 
+                        }
+                  }
+              }
+            }
           }
       }
     return result;
