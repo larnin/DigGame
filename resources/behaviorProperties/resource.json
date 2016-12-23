@@ -222,6 +222,25 @@
           "type": "number"
         }
       ]
+    },
+    "CloudsMoverBehavior": {
+      "scriptId": "87",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "size",
+          "type": "number"
+        },
+        {
+          "name": "moveSpeed",
+          "type": "number"
+        },
+        {
+          "name": "originalX",
+          "type": "number"
+        }
+      ]
     }
   }
 }

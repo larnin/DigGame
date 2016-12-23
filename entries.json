@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 87,
+  "nextEntryId": 88,
   "nodes": [
     {
       "id": "0",
@@ -178,6 +178,11 @@
                 {
                   "id": "86",
                   "name": "MovingBackground",
+                  "type": "script"
+                },
+                {
+                  "id": "87",
+                  "name": "CloudsMover",
                   "type": "script"
                 }
               ]

@@ -2195,6 +2195,50 @@
               "visible": true,
               "layer": 0,
               "prefab": null
+            },
+            {
+              "id": "56",
+              "name": "4",
+              "children": [],
+              "components": [
+                {
+                  "type": "SpriteRenderer",
+                  "config": {
+                    "formatVersion": 1,
+                    "spriteAssetId": "84",
+                    "animationId": null,
+                    "horizontalFlip": false,
+                    "verticalFlip": false,
+                    "castShadow": false,
+                    "receiveShadow": false,
+                    "color": "ffffff",
+                    "overrideOpacity": false,
+                    "opacity": null,
+                    "materialType": "basic",
+                    "shaderAssetId": null
+                  },
+                  "id": "0"
+                }
+              ],
+              "position": {
+                "x": -50,
+                "y": 0,
+                "z": 0
+              },
+              "orientation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "scale": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              },
+              "visible": true,
+              "layer": 0,
+              "prefab": null
             }
           ],
           "components": [
@@ -2215,6 +2259,23 @@
                 "shaderAssetId": null
               },
               "id": "0"
+            },
+            {
+              "type": "Behavior",
+              "config": {
+                "behaviorName": "CloudsMoverBehavior",
+                "propertyValues": {
+                  "size": {
+                    "type": "number",
+                    "value": 25
+                  },
+                  "moveSpeed": {
+                    "type": "number",
+                    "value": 0.008
+                  }
+                }
+              },
+              "id": "1"
             }
           ],
           "position": {
@@ -2372,6 +2433,50 @@
               "visible": true,
               "layer": 0,
               "prefab": null
+            },
+            {
+              "id": "57",
+              "name": "4",
+              "children": [],
+              "components": [
+                {
+                  "type": "SpriteRenderer",
+                  "config": {
+                    "formatVersion": 1,
+                    "spriteAssetId": "85",
+                    "animationId": null,
+                    "horizontalFlip": false,
+                    "verticalFlip": false,
+                    "castShadow": false,
+                    "receiveShadow": false,
+                    "color": "ffffff",
+                    "overrideOpacity": false,
+                    "opacity": null,
+                    "materialType": "basic",
+                    "shaderAssetId": null
+                  },
+                  "id": "0"
+                }
+              ],
+              "position": {
+                "x": -50,
+                "y": 0,
+                "z": 0
+              },
+              "orientation": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "scale": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              },
+              "visible": true,
+              "layer": 0,
+              "prefab": null
             }
           ],
           "components": [
@@ -2392,6 +2497,23 @@
                 "shaderAssetId": null
               },
               "id": "0"
+            },
+            {
+              "type": "Behavior",
+              "config": {
+                "behaviorName": "CloudsMoverBehavior",
+                "propertyValues": {
+                  "size": {
+                    "type": "number",
+                    "value": 25
+                  },
+                  "moveSpeed": {
+                    "type": "number",
+                    "value": 0.003
+                  }
+                }
+              },
+              "id": "1"
             }
           ],
           "position": {

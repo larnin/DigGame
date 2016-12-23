@@ -93,7 +93,7 @@ class ShopBehavior extends Sup.Behavior
   
   renderAndSellOres() : void
   {
-    const bonePos = 2.7;
+    const bonePos = 3;
     let coal = this.actor.getChild("Coal").textRenderer;
     let iron = this.actor.getChild("Iron").textRenderer;
     let silver = this.actor.getChild("Silver").textRenderer;
@@ -108,8 +108,8 @@ class ShopBehavior extends Sup.Behavior
     diamond.setText(G.sys.playerData.diamond);
     
     let value = G.sys.playerData.coal*coalValue + G.sys.playerData.iron*ironValue + G.sys.playerData.silver*silverValue + G.sys.playerData.gold*goldValue + G.sys.playerData.diamond*diamondValue;
-    total.textRenderer.setText("Total: " + value);
-    let boneOffset = bonePos + this.charSize*Math.floor(Math.log(value)*Math.LOG10E)/2;
+    total.textRenderer.setText("Total: +" + value);
+    let boneOffset = bonePos + this.charSize*(value >= 1 ? this.charSize*Math.floor(Math.log(value)*Math.LOG10E)/2 : 0);
     total.getChild("Bone").setLocalX(boneOffset);
     
     G.sys.playerData.coal = 0;
@@ -285,6 +285,7 @@ class ShopBehavior extends Sup.Behavior
   
   onExitButtonClick() : void
   {
+    G.sys.playerData.canMove = false;
     this.actor.destroy();
   }
 }
