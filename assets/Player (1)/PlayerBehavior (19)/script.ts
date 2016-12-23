@@ -9,6 +9,7 @@ class PlayerBehavior2 extends Sup.Behavior
   tilemap = null;
   ray = null;
   
+  targetID = null;
   attacktarget = null;
   attackvalue = 0;
   moving = true;
@@ -52,13 +53,33 @@ class PlayerBehavior2 extends Sup.Behavior
   attackMode()
   {
     this.attackvalue += G.sys.playerData.miningSpeed;
-    if(this.attackvalue > durabilityOf(this.tilemap.getTileAt(0,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y))))
+    if(this.attackvalue > durabilityOf(this.targetID))
     {
+      if(G.sys.playerData.inventorySize > G.sys.playerData.oreCount())
+        {
+          if(this.targetID == coalID)
+            {
+              G.sys.playerData.coal++;
+            }
+          if(this.targetID == ironID)
+            {
+              G.sys.playerData.iron++;
+            }
+          if(this.targetID == goldID)
+            {
+              G.sys.playerData.gold++;
+            }
+          if(this.targetID == diamondID)
+            {
+              G.sys.playerData.diamond++;
+            }
+        }
       breakBlock(this.tilemap,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y));
       this.actor.spriteRenderer.setAnimation("Idle");
       this.attacktarget = null;
       this.attackvalue = 0;
       this.moving = true;
+      this.targetID = null;
     }
   }
   
@@ -221,11 +242,12 @@ class PlayerBehavior2 extends Sup.Behavior
                 else
                 {
                   Sup.log(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)));
-                  if(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)) == chestID)
+                  let targetID = this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
+                  if(targetID == chestID)
                     {
                       openChest(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
                     }
-                  else if(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)) == shopID)
+                  else if(targetID == shopID)
                   {
                     G.sys.gameManager.openShop();
                   }
@@ -234,7 +256,8 @@ class PlayerBehavior2 extends Sup.Behavior
                     this.moving = false;
                     this.actor.spriteRenderer.setAnimation("Attack");
                     this.attacktarget = mousePosition; 
-                    this.attackvalue = 0;                   
+                    this.attackvalue = 0;  
+                    this.targetID = targetID;
                   }
                 }
               }
