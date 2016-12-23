@@ -191,6 +191,37 @@
           "type": "number"
         }
       ]
+    },
+    "MovingBackgroundBehavior": {
+      "scriptId": "86",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "originalPosX",
+          "type": "number"
+        },
+        {
+          "name": "originalPosY",
+          "type": "number"
+        },
+        {
+          "name": "originalCameraPosX",
+          "type": "number"
+        },
+        {
+          "name": "originalCameraPosY",
+          "type": "number"
+        },
+        {
+          "name": "moveX",
+          "type": "number"
+        },
+        {
+          "name": "moveY",
+          "type": "number"
+        }
+      ]
     }
   }
 }
