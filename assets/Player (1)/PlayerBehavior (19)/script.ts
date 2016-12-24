@@ -34,6 +34,7 @@ class PlayerBehavior2 extends Sup.Behavior
       this.blockSprite = new Sup.Actor("CrackEffect"); 
       new Sup.SpriteRenderer(this.blockSprite,"Player/BlockCrack/allCrack");
       this.blockSprite.spriteRenderer.setAnimation("null");
+      this.actor.spriteRenderer.setSprite(G.sys.playerData.spriteName);
   }
   
   update() 
@@ -65,7 +66,7 @@ class PlayerBehavior2 extends Sup.Behavior
         this.actor.spriteRenderer.setAnimation("Die");
         G.sys.playerData.canMove = false;
       }
-    Sup.log(this.actor.spriteRenderer.getAnimation())
+    //Sup.log(this.actor.spriteRenderer.getAnimation())
     /*if(this.actor.spriteRenderer.getAnimation() == "Die")
       {
         //Sup.log(this.actor.spriteRenderer.getAnimationFrameIndex());

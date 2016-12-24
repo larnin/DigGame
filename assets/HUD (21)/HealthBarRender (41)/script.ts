@@ -20,8 +20,12 @@ class HealthBarRenderBehavior extends Sup.Behavior
   renderBars() : void
   {
     let life = G.sys.playerData.life / G.sys.playerData.lifeMax;
+    if(life == 0)
+      life = 0.01;
     this.lifeBarRender.setLocalScaleX(this.lifeBarWidth*life);
     let food = G.sys.playerData.energy / G.sys.playerData.energyMax;
+    if(food == 0)
+      food = 0.01;
     this.foodBarRender.setLocalScaleX(this.foodBarWidth*food);
   }
 }
