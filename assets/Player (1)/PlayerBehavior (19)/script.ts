@@ -326,14 +326,14 @@ class PlayerBehavior2 extends Sup.Behavior
                 {
                   if(mousePosition.y > playerPosition.y)
                     {
-                      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)+1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)+1,Math.floor(playerPosition.y)) == airID  )
+                      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)+1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)+1,Math.floor(playerPosition.y)) == airID || this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)+1) == ladderID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)+1,Math.floor(playerPosition.y)) == ladderID )
                         {
                           result = true; 
                         }
                     }
                   else
                   {
-                    if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)-1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)+1,Math.floor(playerPosition.y)) == airID  )
+                    if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)-1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)+1,Math.floor(playerPosition.y)) == airID || this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)-1) == ladderID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)+1,Math.floor(playerPosition.y)) == ladderID )
                         {
                           result = true; 
                         }
@@ -343,14 +343,14 @@ class PlayerBehavior2 extends Sup.Behavior
               {
                 if(mousePosition.y > playerPosition.y)
                     {
-                      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)+1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)-1,Math.floor(playerPosition.y)) == airID  )
+                      if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)+1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)-1,Math.floor(playerPosition.y)) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)+1) == ladderID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)-1,Math.floor(playerPosition.y)) == ladderID  )
                         {
                           result = true; 
                         }
                     }
                   else
                   {
-                    if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)-1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)-1,Math.floor(playerPosition.y)) == airID  )
+                    if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)-1) == airID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)-1,Math.floor(playerPosition.y)) == airID  || this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)-1) == ladderID ||this.tilemap.getTileAt(0,Math.floor(playerPosition.x)-1,Math.floor(playerPosition.y)) == ladderID)
                         {
                           result = true; 
                         }
