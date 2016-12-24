@@ -85,7 +85,7 @@ class PlayerBehavior2 extends Sup.Behavior
   attackMode()
   {
     this.attackvalue += G.sys.playerData.miningSpeed;
-    let breakPerCent = Math.floor((this.attackvalue / durabilityOf(this.targetID))*11);
+    let breakPerCent = Math.floor((this.attackvalue / durabilityOf(this.targetID))*10);
     if(breakPerCent == 0)
       {
         if(this.blockSprite.spriteRenderer.getAnimation != "Crack0")
@@ -286,6 +286,9 @@ class PlayerBehavior2 extends Sup.Behavior
               }
           }
         if (Sup.Input.wasKeyJustPressed("UP")) {
+          this.blockSprite.spriteRenderer.setAnimation("null");
+          this.attacktarget = null;
+          this.attackvalue = 0;
           this.moving = true;
           if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == ladderID)
           {
@@ -305,8 +308,13 @@ class PlayerBehavior2 extends Sup.Behavior
             if(this.moving)
               this.actor.spriteRenderer.setAnimation("Idle");
             }
-          else 
-            this.actor.spriteRenderer.setAnimation("Run");
+          else
+            {
+              this.blockSprite.spriteRenderer.setAnimation("null");
+              this.attacktarget = null;
+              this.attackvalue = 0;
+              this.actor.spriteRenderer.setAnimation("Run");
+            }
         }
       } 
       else 
@@ -376,7 +384,7 @@ class PlayerBehavior2 extends Sup.Behavior
                 if(this.actor.spriteRenderer.getAnimation() == "Attack")
                   {
                     let target = {x:Math.floor(mousePosition.x),y:Math.floor(mousePosition.y)}
-                    if(target != this.attacktarget)
+                    if(target.x != this.attacktarget.x || target.y != this.attacktarget.y )
                       {
                         this.attacktarget = target;
                         this.attackvalue = 0;
