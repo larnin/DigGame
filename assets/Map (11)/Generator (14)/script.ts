@@ -9,8 +9,8 @@ const holesMaxProbability = 80;
 const holesStretch = 2;
 const holesMaxHeight = grassHeight-5;
 
-const coalHeight = grassHeight;
-const coalTransitionSize = 5;
+const coalHeight = grassHeight-1;
+const coalTransitionSize = 0;
 const coalProbability = 0.05;
 const ironHeight = grassHeight-15;
 const ironProbability = 0.04;
@@ -85,12 +85,12 @@ function placeHoles(map : Sup.TileMap) : void
 function placeOres(map : Sup.TileMap) : void
 {
   for(let i = 0 ; i < map.getWidth() ; i++)
-    for(let j = 0 ; j < Math.min(map.getHeight(), holesMaxHeight) ; j++)
+    for(let j = 0 ; j < map.getHeight() ; j++)
     {
       let currentTile = map.getTileAt(0, i, j);
       if(currentTile == dirtID)
       {
-        let coalP = probabilitySquared(coalHeight-coalTransitionSize, coalHeight, j, 0, coalProbability);
+        let coalP = (j > coalHeight ? 0 : coalProbability);
         let ironP = probabilitySquared(ironHeight-oreTransitionSize, ironHeight, j, 0, ironProbability);
         let rand = Math.random();
         if(rand < coalP)
