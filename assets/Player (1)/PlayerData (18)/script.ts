@@ -1,6 +1,9 @@
 const MiningCost = 1;
 const LadderCost = 1;
 const OpenChestCost = 1;
+const StepForLoseFood = 50;
+const StepLimitCost = 1;
+
 
 class PlayerData
 {

@@ -16,6 +16,8 @@ class PlayerBehavior2 extends Sup.Behavior
   
   lookingLeft = false;
   
+  lastPosition = null;
+  stepCount = 0;
   
   awake()
   {
@@ -23,11 +25,13 @@ class PlayerBehavior2 extends Sup.Behavior
       this.maprenderer = this.map.tileMapRenderer;
       this.tilemap =  this.maprenderer.getTileMap();
       this.ray = new Sup.Math.Ray();
+      this.lastPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map);
   }
   
   update() 
   {
     Sup.ArcadePhysics2D.collides(this.actor.arcadeBody2D, Sup.ArcadePhysics2D.getAllBodies());
+    this.updateStepValue();
     if(G.sys.playerData.canMove)
       {
         let velocity = this.actor.arcadeBody2D.getVelocity();
@@ -48,6 +52,27 @@ class PlayerBehavior2 extends Sup.Behavior
         this.mouseControl();
         this.actor.arcadeBody2D.setVelocity(velocity);
       }
+  }
+  
+  updateStepValue()
+  {
+    let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map);
+    if(playerPosition.x != this.lastPosition.x)
+      {
+        this.stepCount++;
+        this.lastPosition.x = playerPosition.x;
+      }
+    if(playerPosition.y != this.lastPosition.y)
+      {
+        this.stepCount++;
+        this.lastPosition.y = playerPosition.y;
+      }
+    if(this.stepCount >= StepForLoseFood)
+      {
+        this.stepCount = this.stepCount - StepForLoseFood;
+        G.sys.playerData.energy = G.sys.playerData.energy - StepLimitCost;
+      }
+    Sup.log(this.stepCount);
   }
   
   attackMode()
