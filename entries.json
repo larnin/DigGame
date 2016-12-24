@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 125,
+  "nextEntryId": 126,
   "nodes": [
     {
       "id": "0",
@@ -477,7 +477,7 @@
           "type": "scene"
         },
         {
-          "id": "103",
+          "id": "125",
           "name": "MenuMap",
           "type": "tileMap"
         },
@@ -581,6 +581,11 @@
         {
           "id": "9",
           "name": "Map Test",
+          "type": "tileMap"
+        },
+        {
+          "id": "103",
+          "name": "MenuMap",
           "type": "tileMap"
         }
       ]
