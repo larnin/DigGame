@@ -85,7 +85,7 @@ class PlayerBehavior2 extends Sup.Behavior
   attackMode()
   {
     this.attackvalue += G.sys.playerData.miningSpeed;
-    let breakPerCent = Math.floor((this.attackvalue / durabilityOf(this.targetID))*10);
+    let breakPerCent = Math.floor((this.attackvalue / durabilityOf(this.targetID))*11);
     if(breakPerCent == 0)
       {
         if(this.blockSprite.spriteRenderer.getAnimation != "Crack0")
@@ -95,7 +95,88 @@ class PlayerBehavior2 extends Sup.Behavior
             this.blockSprite.spriteRenderer.setAnimation("Crack0");
           }
       }
-    else if(breakPerCent == 10)
+     if(breakPerCent == 1)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack1")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack1");
+          }
+      }
+    if(breakPerCent == 2)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack2")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack2");
+          }
+      }
+    if(breakPerCent == 3)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack3")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack3");
+          }
+      }
+    if(breakPerCent == 4)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack4")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack4");
+          }
+      }
+    if(breakPerCent == 5)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack5")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack5");
+          }
+      }
+    if(breakPerCent == 6)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack6")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack6");
+          }
+      }
+    if(breakPerCent == 7)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack7")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack7");
+          }
+      }
+    if(breakPerCent == 8)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack8")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack8");
+          }
+      }
+    if(breakPerCent == 9)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack9")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack9");
+          }
+      }
+    if(breakPerCent == 10)
     {
       if(G.sys.playerData.inventorySize > G.sys.playerData.oreCount())
         {
