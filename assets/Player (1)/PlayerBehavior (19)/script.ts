@@ -67,6 +67,17 @@ class PlayerBehavior2 extends Sup.Behavior
             this.actor.spriteRenderer.setAnimation("Dead");
           }
       }
+    if(this.actor.spriteRenderer.getAnimation() == "Dead")
+      {
+        G.sys.playerData.coal = 0;
+        G.sys.playerData.iron = 0;
+        G.sys.playerData.gold = 0;
+        G.sys.playerData.diamond = 0;
+        G.sys.playerData.life = G.sys.playerData.lifeMax;
+        G.sys.playerData.energy = G.sys.playerData.energyMax;
+        this.actor.spriteRenderer.setAnimation("Idle");
+        G.sys.playerData.canMove = true;
+      }
   }
   
   
