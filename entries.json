@@ -457,21 +457,6 @@
       ]
     },
     {
-      "id": "34",
-      "name": "GameManager",
-      "type": "script"
-    },
-    {
-      "id": "35",
-      "name": "G",
-      "type": "script"
-    },
-    {
-      "id": "37",
-      "name": "CameraBehavior",
-      "type": "script"
-    },
-    {
       "id": "101",
       "name": "Menu",
       "type": null,
@@ -512,6 +497,21 @@
           "type": "script"
         }
       ]
+    },
+    {
+      "id": "34",
+      "name": "GameManager",
+      "type": "script"
+    },
+    {
+      "id": "35",
+      "name": "G",
+      "type": "script"
+    },
+    {
+      "id": "37",
+      "name": "CameraBehavior",
+      "type": "script"
     },
     {
       "id": "54",
