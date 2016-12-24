@@ -22,6 +22,9 @@ class MenuBehaviour extends Sup.Behavior
   playerMaxID = 7;
   playerID = 0;
   
+  arrowMinSize = 1;
+  arrowMaxSize = 1.3;
+  
   awake() 
   {
     this.camera = Sup.getActor("Camera").camera;
@@ -78,6 +81,10 @@ class MenuBehaviour extends Sup.Behavior
   {
     let size = (Math.sin(this.timer/this.playPeriode)+1)/2*(this.playMaxSize-this.playMinSize)+this.playMinSize;
     this.playText.setLocalScale(size, size, size);
+    
+    let arrowSize = (Math.sin(this.timer/this.playPeriode)+1)/2*(this.arrowMaxSize-this.arrowMinSize)+this.arrowMinSize;
+    this.rightArrow.setLocalScale(-arrowSize, arrowSize, arrowSize);
+    this.leftArrow.setLocalScale(arrowSize, arrowSize, arrowSize);
   }
   
   play() : void

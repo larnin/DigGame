@@ -321,6 +321,14 @@
         {
           "name": "playerID",
           "type": "number"
+        },
+        {
+          "name": "arrowMinSize",
+          "type": "number"
+        },
+        {
+          "name": "arrowMaxSize",
+          "type": "number"
         }
       ]
     }
