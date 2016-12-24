@@ -276,6 +276,49 @@
           "type": "number"
         }
       ]
+    },
+    "MenuBehaviour": {
+      "scriptId": "122",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "timer",
+          "type": "number"
+        },
+        {
+          "name": "playMinSize",
+          "type": "number"
+        },
+        {
+          "name": "playMaxSize",
+          "type": "number"
+        },
+        {
+          "name": "playPeriode",
+          "type": "number"
+        },
+        {
+          "name": "playClicked",
+          "type": "boolean"
+        },
+        {
+          "name": "playClickedTime",
+          "type": "number"
+        },
+        {
+          "name": "playDelayTime",
+          "type": "number"
+        },
+        {
+          "name": "playerMaxID",
+          "type": "number"
+        },
+        {
+          "name": "playerID",
+          "type": "number"
+        }
+      ]
     }
   }
 }

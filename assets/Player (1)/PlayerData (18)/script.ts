@@ -8,6 +8,8 @@ const FallingMultiplicateMalus = 1;
 
 class PlayerData
 {
+  spriteName = "";
+  
   canMove = true;
 
   energyLvl = 1;
