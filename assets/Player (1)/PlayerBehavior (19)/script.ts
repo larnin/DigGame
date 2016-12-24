@@ -72,7 +72,6 @@ class PlayerBehavior2 extends Sup.Behavior
         this.stepCount = this.stepCount - StepForLoseFood;
         G.sys.playerData.energy = G.sys.playerData.energy - StepLimitCost;
       }
-    Sup.log(this.stepCount);
   }
   
   attackMode()
