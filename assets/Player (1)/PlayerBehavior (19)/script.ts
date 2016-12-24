@@ -60,7 +60,22 @@ class PlayerBehavior2 extends Sup.Behavior
         this.mouseControl();
         this.actor.arcadeBody2D.setVelocity(velocity);
       }
+    if(G.sys.playerData.energy == 0 || G.sys.playerData.life == 0)
+      {
+        this.actor.spriteRenderer.setAnimation("Die");
+        G.sys.playerData.canMove = false;
+      }
+    Sup.log(this.actor.spriteRenderer.getAnimation())
+    /*if(this.actor.spriteRenderer.getAnimation() == "Die")
+      {
+        //Sup.log(this.actor.spriteRenderer.getAnimationFrameIndex());
+        if(this.actor.spriteRenderer.getAnimationFrameIndex() == 35)
+          {
+            this.actor.spriteRenderer.pauseAnimation();
+          }
+      }*/
   }
+  
   
   updateStepValue()
   {
