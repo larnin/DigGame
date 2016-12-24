@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 89,
+  "nextEntryId": 101,
   "nodes": [
     {
       "id": "0",
@@ -228,6 +228,68 @@
           "id": "20",
           "name": "ConversionMapWorld",
           "type": "script"
+        },
+        {
+          "id": "89",
+          "name": "ChestEffect",
+          "type": null,
+          "children": [
+            {
+              "id": "99",
+              "name": "ChestPrefab",
+              "type": "scene"
+            },
+            {
+              "id": "90",
+              "name": "LightFx",
+              "type": "sprite"
+            },
+            {
+              "id": "91",
+              "name": "Bone",
+              "type": "sprite"
+            },
+            {
+              "id": "92",
+              "name": "LadderSmall",
+              "type": "sprite"
+            },
+            {
+              "id": "93",
+              "name": "Food",
+              "type": "sprite"
+            },
+            {
+              "id": "94",
+              "name": "Coal",
+              "type": "sprite"
+            },
+            {
+              "id": "95",
+              "name": "Iron",
+              "type": "sprite"
+            },
+            {
+              "id": "96",
+              "name": "Silver",
+              "type": "sprite"
+            },
+            {
+              "id": "97",
+              "name": "Gold",
+              "type": "sprite"
+            },
+            {
+              "id": "98",
+              "name": "Diamond",
+              "type": "sprite"
+            },
+            {
+              "id": "100",
+              "name": "ChestBehavior",
+              "type": "script"
+            }
+          ]
         }
       ]
     },

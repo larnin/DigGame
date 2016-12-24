@@ -315,6 +315,7 @@ function openChest(map : Sup.TileMap, x : number, y : number)
     return;
   map.setTileAt(0, x, y, openChestID);
   renderBlock(map, x, y);
+  G.sys.gameManager.openChest(x, y);
 }
 
 function setBlock(map : Sup.TileMap, id : number, x : number, y : number, overrideRender : boolean = false) : void

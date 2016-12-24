@@ -249,6 +249,17 @@
           "type": "number"
         }
       ]
+    },
+    "ChestBehavior": {
+      "scriptId": "100",
+      "line": 19,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "time",
+          "type": "number"
+        }
+      ]
     }
   }
 }
