@@ -19,6 +19,9 @@ class PlayerBehavior2 extends Sup.Behavior
   lastPosition = null;
   stepCount = 0;
   
+  positionBeforeFalling = null;
+  isFalling = false;
+  
   awake()
   {
       this.map = Sup.getActor("Map");
@@ -157,7 +160,9 @@ class PlayerBehavior2 extends Sup.Behavior
       let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map);
       if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) != ladderID)
       {
+        this.isFalling = true;
         this.actor.spriteRenderer.setAnimation("Fall");
+        this.positionBeforeFalling = playerPosition;
         Sup.ArcadePhysics2D.setGravity(0, -0.02);
       }
       if(velocity.y == 0)
@@ -174,9 +179,17 @@ class PlayerBehavior2 extends Sup.Behavior
   {
     if (this.actor.arcadeBody2D.getTouches().bottom) 
       {
+        let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
+        if(this.actor.spriteRenderer.getAnimation() == "Fall")
+          {
+            this.isFalling = false;
+            if(playerPosition.y < this.positionBeforeFalling.y - 2)
+              {
+                G.sys.playerData.life = G.sys.playerData.life - Math.floor(this.positionBeforeFalling.y - 2 - playerPosition.y)*FallingMultiplicateMalus;
+              }
+          }
         if (Sup.Input.wasKeyJustPressed("UP")) {
           this.moving = true;
-          let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
           if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == ladderID)
           {
              this.actor.spriteRenderer.setAnimation("Climb");
@@ -212,7 +225,14 @@ class PlayerBehavior2 extends Sup.Behavior
             if (velocity.y >= 0) 
               this.actor.spriteRenderer.setAnimation("Jump");
             else 
-              this.actor.spriteRenderer.setAnimation("Fall");      
+              {
+                this.actor.spriteRenderer.setAnimation("Fall");
+                if(!this.isFalling)
+                  {
+                    this.positionBeforeFalling = playerPosition;
+                    this.isFalling = true;
+                  }
+              }
           }
 
       }
@@ -266,7 +286,6 @@ class PlayerBehavior2 extends Sup.Behavior
                   }
                 else
                 {
-                  Sup.log(this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y)));
                   let targetID = this.tilemap.getTileAt(0,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
                   if(targetID == chestID)
                     {

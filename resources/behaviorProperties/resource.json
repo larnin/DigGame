@@ -77,6 +77,14 @@
         {
           "name": "stepCount",
           "type": "number"
+        },
+        {
+          "name": "positionBeforeFalling",
+          "type": "any"
+        },
+        {
+          "name": "isFalling",
+          "type": "boolean"
         }
       ]
     },
