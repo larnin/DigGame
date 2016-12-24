@@ -299,12 +299,12 @@ function pickSpeed(level : number) : number
 
 function foodSize(level : number) : number
 {
-  return level*20;
+  return level*50;
 }
 
 function inventorySize(level : number) : number
 {
-  return level*5;
+  return level*10;
 }
 
 function pickLevelPrice(level : number) : number
