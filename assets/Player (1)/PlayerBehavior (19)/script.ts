@@ -73,7 +73,7 @@ class PlayerBehavior2 extends Sup.Behavior
     if(this.stepCount >= StepForLoseFood)
       {
         this.stepCount = this.stepCount - StepForLoseFood;
-        G.sys.playerData.energy = G.sys.playerData.energy - StepLimitCost;
+        this.reduceFood(StepLimitCost);
       }
   }
   
@@ -102,7 +102,7 @@ class PlayerBehavior2 extends Sup.Behavior
             }
         }
       breakBlock(this.tilemap,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y));
-      G.sys.playerData.energy = G.sys.playerData.energy - MiningCost;
+      this.reduceFood(MiningCost);
       this.actor.spriteRenderer.setAnimation("Idle");
       this.attacktarget = null;
       this.attackvalue = 0;
@@ -185,7 +185,7 @@ class PlayerBehavior2 extends Sup.Behavior
             this.isFalling = false;
             if(playerPosition.y < this.positionBeforeFalling.y - 2)
               {
-                G.sys.playerData.life = G.sys.playerData.life - Math.floor(this.positionBeforeFalling.y - 2 - playerPosition.y)*FallingMultiplicateMalus;
+                this.reduceLife(Math.floor(this.positionBeforeFalling.y - 2 - playerPosition.y)*FallingMultiplicateMalus);
               }
           }
         if (Sup.Input.wasKeyJustPressed("UP")) {
@@ -253,7 +253,7 @@ class PlayerBehavior2 extends Sup.Behavior
             {
               placeLadder(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
               G.sys.playerData.ladders--;
-              G.sys.playerData.energy = G.sys.playerData.energy - LadderCost;
+              this.reduceFood(LadderCost);
             }
         }
         if(Sup.Input.wasMouseButtonJustPressed(0))
@@ -290,7 +290,7 @@ class PlayerBehavior2 extends Sup.Behavior
                   if(targetID == chestID)
                     {
                       openChest(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
-                      G.sys.playerData.energy = G.sys.playerData.energy - OpenChestCost;
+                      this.reduceFood(OpenChestCost);
                     }
                   else if(targetID == shopID)
                   {
@@ -392,6 +392,22 @@ class PlayerBehavior2 extends Sup.Behavior
           }
       }
     return result;
+  }
+  
+  reduceFood(value : number)
+  {
+    if(G.sys.playerData.energy - value < 0)
+      G.sys.playerData.energy = 0;    
+    else
+      G.sys.playerData.energy = G.sys.playerData.energy - value;
+  }
+  
+  reduceLife(value : number)
+  {
+    if(G.sys.playerData.life - value < 0)
+      G.sys.playerData.life = 0;    
+    else
+      G.sys.playerData.life = G.sys.playerData.life - value;
   }
 }
 Sup.registerBehavior(PlayerBehavior2);
