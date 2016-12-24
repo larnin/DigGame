@@ -25,6 +25,27 @@
       "startFrameIndex": 0,
       "endFrameIndex": 9,
       "speed": 1
+    },
+    {
+      "id": "1",
+      "name": "Crack0",
+      "startFrameIndex": 0,
+      "endFrameIndex": 0,
+      "speed": 1
+    },
+    {
+      "id": "2",
+      "name": "Crack1",
+      "startFrameIndex": 1,
+      "endFrameIndex": 1,
+      "speed": 1
+    },
+    {
+      "id": "3",
+      "name": "null",
+      "startFrameIndex": 10,
+      "endFrameIndex": 10,
+      "speed": 1
     }
   ],
   "mapSlots": {

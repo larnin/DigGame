@@ -21,6 +21,8 @@ class PlayerBehavior2 extends Sup.Behavior
   
   positionBeforeFalling = null;
   isFalling = false;
+
+  blockSprite = null;
   
   awake()
   {
@@ -29,6 +31,9 @@ class PlayerBehavior2 extends Sup.Behavior
       this.tilemap =  this.maprenderer.getTileMap();
       this.ray = new Sup.Math.Ray();
       this.lastPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map);
+      this.blockSprite = new Sup.Actor("CrackEffect"); 
+      new Sup.SpriteRenderer(this.blockSprite,"Player/BlockCrack/allCrack");
+      this.blockSprite.spriteRenderer.setAnimation("null");
   }
   
   update() 
@@ -80,7 +85,17 @@ class PlayerBehavior2 extends Sup.Behavior
   attackMode()
   {
     this.attackvalue += G.sys.playerData.miningSpeed;
-    if(this.attackvalue > durabilityOf(this.targetID))
+    let breakPerCent = Math.floor((this.attackvalue / durabilityOf(this.targetID))*10);
+    if(breakPerCent == 0)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack0")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack0");
+          }
+      }
+    else if(breakPerCent == 10)
     {
       if(G.sys.playerData.inventorySize > G.sys.playerData.oreCount())
         {
@@ -104,6 +119,7 @@ class PlayerBehavior2 extends Sup.Behavior
       breakBlock(this.tilemap,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y));
       this.reduceFood(MiningCost);
       this.actor.spriteRenderer.setAnimation("Idle");
+      this.blockSprite.spriteRenderer.setAnimation("null");
       this.attacktarget = null;
       this.attackvalue = 0;
       this.moving = true;
@@ -278,9 +294,10 @@ class PlayerBehavior2 extends Sup.Behavior
                 }
                 if(this.actor.spriteRenderer.getAnimation() == "Attack")
                   {
-                    if(mousePosition != this.attacktarget)
+                    let target = {x:Math.floor(mousePosition.x),y:Math.floor(mousePosition.y)}
+                    if(target != this.attacktarget)
                       {
-                        this.attacktarget = mousePosition;
+                        this.attacktarget = target;
                         this.attackvalue = 0;
                       }
                   }
@@ -300,7 +317,7 @@ class PlayerBehavior2 extends Sup.Behavior
                   {
                     this.moving = false;
                     this.actor.spriteRenderer.setAnimation("Attack");
-                    this.attacktarget = mousePosition; 
+                    this.attacktarget = {x:Math.floor(mousePosition.x),y:Math.floor(mousePosition.y)}; 
                     this.attackvalue = 0;  
                     this.targetID = targetID;
                   }

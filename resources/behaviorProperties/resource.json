@@ -85,6 +85,10 @@
         {
           "name": "isFalling",
           "type": "boolean"
+        },
+        {
+          "name": "blockSprite",
+          "type": "any"
         }
       ]
     },
