@@ -25,6 +25,83 @@
       "startFrameIndex": 0,
       "endFrameIndex": 9,
       "speed": 1
+    },
+    {
+      "id": "1",
+      "name": "Crack0",
+      "startFrameIndex": 0,
+      "endFrameIndex": 0,
+      "speed": 1
+    },
+    {
+      "id": "2",
+      "name": "Crack1",
+      "startFrameIndex": 1,
+      "endFrameIndex": 1,
+      "speed": 1
+    },
+    {
+      "id": "3",
+      "name": "null",
+      "startFrameIndex": 10,
+      "endFrameIndex": 10,
+      "speed": 1
+    },
+    {
+      "id": "4",
+      "name": "Crack2",
+      "startFrameIndex": 2,
+      "endFrameIndex": 2,
+      "speed": 1
+    },
+    {
+      "id": "5",
+      "name": "Crack3",
+      "startFrameIndex": 3,
+      "endFrameIndex": 3,
+      "speed": 1
+    },
+    {
+      "id": "6",
+      "name": "Crack4",
+      "startFrameIndex": 4,
+      "endFrameIndex": 4,
+      "speed": 1
+    },
+    {
+      "id": "7",
+      "name": "Crack5",
+      "startFrameIndex": 5,
+      "endFrameIndex": 5,
+      "speed": 1
+    },
+    {
+      "id": "8",
+      "name": "Crack6",
+      "startFrameIndex": 6,
+      "endFrameIndex": 6,
+      "speed": 1
+    },
+    {
+      "id": "9",
+      "name": "Crack7",
+      "startFrameIndex": 7,
+      "endFrameIndex": 7,
+      "speed": 1
+    },
+    {
+      "id": "10",
+      "name": "Crack8",
+      "startFrameIndex": 8,
+      "endFrameIndex": 8,
+      "speed": 1
+    },
+    {
+      "id": "11",
+      "name": "Crack9",
+      "startFrameIndex": 9,
+      "endFrameIndex": 9,
+      "speed": 1
     }
   ],
   "mapSlots": {

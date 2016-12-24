@@ -21,6 +21,8 @@ class PlayerBehavior2 extends Sup.Behavior
   
   positionBeforeFalling = null;
   isFalling = false;
+
+  blockSprite = null;
   
   awake()
   {
@@ -29,6 +31,9 @@ class PlayerBehavior2 extends Sup.Behavior
       this.tilemap =  this.maprenderer.getTileMap();
       this.ray = new Sup.Math.Ray();
       this.lastPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map);
+      this.blockSprite = new Sup.Actor("CrackEffect"); 
+      new Sup.SpriteRenderer(this.blockSprite,"Player/BlockCrack/allCrack");
+      this.blockSprite.spriteRenderer.setAnimation("null");
   }
   
   update() 
@@ -73,14 +78,105 @@ class PlayerBehavior2 extends Sup.Behavior
     if(this.stepCount >= StepForLoseFood)
       {
         this.stepCount = this.stepCount - StepForLoseFood;
-        G.sys.playerData.energy = G.sys.playerData.energy - StepLimitCost;
+        this.reduceFood(StepLimitCost);
       }
   }
   
   attackMode()
   {
     this.attackvalue += G.sys.playerData.miningSpeed;
-    if(this.attackvalue > durabilityOf(this.targetID))
+    let breakPerCent = Math.floor((this.attackvalue / durabilityOf(this.targetID))*10);
+    if(breakPerCent == 0)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack0")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack0");
+          }
+      }
+     if(breakPerCent == 1)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack1")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack1");
+          }
+      }
+    if(breakPerCent == 2)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack2")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack2");
+          }
+      }
+    if(breakPerCent == 3)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack3")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack3");
+          }
+      }
+    if(breakPerCent == 4)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack4")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack4");
+          }
+      }
+    if(breakPerCent == 5)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack5")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack5");
+          }
+      }
+    if(breakPerCent == 6)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack6")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack6");
+          }
+      }
+    if(breakPerCent == 7)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack7")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack7");
+          }
+      }
+    if(breakPerCent == 8)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack8")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack8");
+          }
+      }
+    if(breakPerCent == 9)
+      {
+        if(this.blockSprite.spriteRenderer.getAnimation != "Crack9")
+          {
+            let mouseWorldPosition = mapToWorld(this.attacktarget.x+0.5,this.attacktarget.y+0.5,this.map);
+            this.blockSprite.setPosition(mouseWorldPosition.x,mouseWorldPosition.y,1);
+            this.blockSprite.spriteRenderer.setAnimation("Crack9");
+          }
+      }
+    if(breakPerCent == 10)
     {
       if(G.sys.playerData.inventorySize > G.sys.playerData.oreCount())
         {
@@ -102,8 +198,9 @@ class PlayerBehavior2 extends Sup.Behavior
             }
         }
       breakBlock(this.tilemap,Math.floor(this.attacktarget.x),Math.floor(this.attacktarget.y));
-      G.sys.playerData.energy = G.sys.playerData.energy - MiningCost;
+      this.reduceFood(MiningCost);
       this.actor.spriteRenderer.setAnimation("Idle");
+      this.blockSprite.spriteRenderer.setAnimation("null");
       this.attacktarget = null;
       this.attackvalue = 0;
       this.moving = true;
@@ -185,10 +282,13 @@ class PlayerBehavior2 extends Sup.Behavior
             this.isFalling = false;
             if(playerPosition.y < this.positionBeforeFalling.y - 2)
               {
-                G.sys.playerData.life = G.sys.playerData.life - Math.floor(this.positionBeforeFalling.y - 2 - playerPosition.y)*FallingMultiplicateMalus;
+                this.reduceLife(Math.floor(this.positionBeforeFalling.y - 2 - playerPosition.y)*FallingMultiplicateMalus);
               }
           }
         if (Sup.Input.wasKeyJustPressed("UP")) {
+          this.blockSprite.spriteRenderer.setAnimation("null");
+          this.attacktarget = null;
+          this.attackvalue = 0;
           this.moving = true;
           if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == ladderID)
           {
@@ -208,8 +308,13 @@ class PlayerBehavior2 extends Sup.Behavior
             if(this.moving)
               this.actor.spriteRenderer.setAnimation("Idle");
             }
-          else 
-            this.actor.spriteRenderer.setAnimation("Run");
+          else
+            {
+              this.blockSprite.spriteRenderer.setAnimation("null");
+              this.attacktarget = null;
+              this.attackvalue = 0;
+              this.actor.spriteRenderer.setAnimation("Run");
+            }
         }
       } 
       else 
@@ -253,7 +358,7 @@ class PlayerBehavior2 extends Sup.Behavior
             {
               placeLadder(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
               G.sys.playerData.ladders--;
-              G.sys.playerData.energy = G.sys.playerData.energy - LadderCost;
+              this.reduceFood(LadderCost);
             }
         }
         if(Sup.Input.wasMouseButtonJustPressed(0))
@@ -278,9 +383,10 @@ class PlayerBehavior2 extends Sup.Behavior
                 }
                 if(this.actor.spriteRenderer.getAnimation() == "Attack")
                   {
-                    if(mousePosition != this.attacktarget)
+                    let target = {x:Math.floor(mousePosition.x),y:Math.floor(mousePosition.y)}
+                    if(target.x != this.attacktarget.x || target.y != this.attacktarget.y )
                       {
-                        this.attacktarget = mousePosition;
+                        this.attacktarget = target;
                         this.attackvalue = 0;
                       }
                   }
@@ -290,7 +396,7 @@ class PlayerBehavior2 extends Sup.Behavior
                   if(targetID == chestID)
                     {
                       openChest(this.tilemap,Math.floor(mousePosition.x),Math.floor(mousePosition.y));
-                      G.sys.playerData.energy = G.sys.playerData.energy - OpenChestCost;
+                      this.reduceFood(OpenChestCost);
                     }
                   else if(targetID == shopID)
                   {
@@ -300,7 +406,7 @@ class PlayerBehavior2 extends Sup.Behavior
                   {
                     this.moving = false;
                     this.actor.spriteRenderer.setAnimation("Attack");
-                    this.attacktarget = mousePosition; 
+                    this.attacktarget = {x:Math.floor(mousePosition.x),y:Math.floor(mousePosition.y)}; 
                     this.attackvalue = 0;  
                     this.targetID = targetID;
                   }
@@ -392,6 +498,22 @@ class PlayerBehavior2 extends Sup.Behavior
           }
       }
     return result;
+  }
+  
+  reduceFood(value : number)
+  {
+    if(G.sys.playerData.energy - value < 0)
+      G.sys.playerData.energy = 0;    
+    else
+      G.sys.playerData.energy = G.sys.playerData.energy - value;
+  }
+  
+  reduceLife(value : number)
+  {
+    if(G.sys.playerData.life - value < 0)
+      G.sys.playerData.life = 0;    
+    else
+      G.sys.playerData.life = G.sys.playerData.life - value;
   }
 }
 Sup.registerBehavior(PlayerBehavior2);
