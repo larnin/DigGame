@@ -1051,7 +1051,7 @@
           "type": "SpriteRenderer",
           "config": {
             "spriteAssetId": "2",
-            "animationId": null,
+            "animationId": "",
             "horizontalFlip": false,
             "verticalFlip": false,
             "castShadow": false,

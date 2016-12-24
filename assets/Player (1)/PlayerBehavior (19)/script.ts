@@ -34,7 +34,6 @@ class PlayerBehavior2 extends Sup.Behavior
       this.blockSprite = new Sup.Actor("CrackEffect"); 
       new Sup.SpriteRenderer(this.blockSprite,"Player/BlockCrack/allCrack");
       this.blockSprite.spriteRenderer.setAnimation("null");
-      this.actor.spriteRenderer.setSprite(G.sys.playerData.spriteName);
   }
   
   update() 
@@ -61,20 +60,13 @@ class PlayerBehavior2 extends Sup.Behavior
         this.mouseControl();
         this.actor.arcadeBody2D.setVelocity(velocity);
       }
-    if(G.sys.playerData.energy == 0 || G.sys.playerData.life == 0)
+    if(this.actor.spriteRenderer.getAnimation() == "Die")
       {
-        this.actor.spriteRenderer.setAnimation("Die");
-        G.sys.playerData.canMove = false;
-      }
-    //Sup.log(this.actor.spriteRenderer.getAnimation())
-    /*if(this.actor.spriteRenderer.getAnimation() == "Die")
-      {
-        //Sup.log(this.actor.spriteRenderer.getAnimationFrameIndex());
-        if(this.actor.spriteRenderer.getAnimationFrameIndex() == 35)
+        if(this.actor.spriteRenderer.getAnimationFrameIndex() == 6)
           {
-            this.actor.spriteRenderer.pauseAnimation();
+            this.actor.spriteRenderer.setAnimation("Dead");
           }
-      }*/
+      }
   }
   
   
@@ -323,6 +315,11 @@ class PlayerBehavior2 extends Sup.Behavior
             {
             if(this.moving)
               this.actor.spriteRenderer.setAnimation("Idle");
+              if(G.sys.playerData.energy == 0 || G.sys.playerData.life == 0)
+              {
+                this.actor.spriteRenderer.setAnimation("Die");
+                G.sys.playerData.canMove = false;
+              }
             }
           else
             {
