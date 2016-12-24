@@ -121,17 +121,17 @@ class MenuBehaviour extends Sup.Behavior
     if(id == 0)
       return "Pierre";
     if(id == 1)
-      return "Truc";
+      return "Croman";
     if(id == 2)
       return "Blond";
     if(id == 3)
-      return "Chouette";
+      return "Calimero";
     if(id == 4)
       return "Plouf";
     if(id == 5)
-      return "Chose";
+      return "Chouette";
     if(id == 6)
-      return "Machin";
+      return "Lion";
     return "Bidule";
   }
 }

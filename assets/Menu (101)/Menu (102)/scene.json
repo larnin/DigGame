@@ -1091,7 +1091,7 @@
             {
               "type": "Behavior",
               "config": {
-                "behaviorName": "CloudsMoverBehavior",
+                "behaviorName": "CloudsMoverMenuBehavior",
                 "propertyValues": {
                   "moveSpeed": {
                     "type": "number",

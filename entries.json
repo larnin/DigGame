@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 123,
+  "nextEntryId": 125,
   "nodes": [
     {
       "id": "0",
@@ -129,6 +129,11 @@
               "type": "sprite"
             }
           ]
+        },
+        {
+          "id": "124",
+          "name": "Pick",
+          "type": "sprite"
         }
       ]
     },
@@ -230,6 +235,11 @@
                 {
                   "id": "87",
                   "name": "CloudsMover",
+                  "type": "script"
+                },
+                {
+                  "id": "123",
+                  "name": "CloudsMoverMenu",
                   "type": "script"
                 }
               ]

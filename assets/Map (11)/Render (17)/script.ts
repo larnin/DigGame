@@ -294,6 +294,9 @@ function renderBlock(map : Sup.TileMap, x : number, y : number, overrideRender :
 function breakBlock(map : Sup.TileMap, x : number, y : number) : void
 {
   setBlock(map, airID, x, y, true);
+  let upBlock = map.getTileAt(2, x, y+1);
+  if(upBlock == graveRenderID1 || upBlock == graveRenderID2)
+    map.setTileAt(2, x, y+1, airID);
 }
 
 function placeLadder(map : Sup.TileMap, x : number, y : number) : void

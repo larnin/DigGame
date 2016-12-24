@@ -24,6 +24,12 @@ class PlayerBehavior2 extends Sup.Behavior
 
   blockSprite = null;
   
+  dead = false;
+  deadTime = 0;
+  deadMaxTime = 2;
+  
+  pick : Sup.Actor = null;
+  
   awake()
   {
       this.map = Sup.getActor("Map");
@@ -34,6 +40,10 @@ class PlayerBehavior2 extends Sup.Behavior
       this.blockSprite = new Sup.Actor("CrackEffect"); 
       new Sup.SpriteRenderer(this.blockSprite,"Player/BlockCrack/allCrack");
       this.blockSprite.spriteRenderer.setAnimation("null");
+      this.actor.spriteRenderer.setSprite(G.sys.playerData.spriteName); 
+    
+      this.pick = this.actor.getChild("Pick");
+      this.pick.setVisible(false);
   }
   
   update() 
@@ -60,23 +70,41 @@ class PlayerBehavior2 extends Sup.Behavior
         this.mouseControl();
         this.actor.arcadeBody2D.setVelocity(velocity);
       }
+    if((G.sys.playerData.energy == 0 || G.sys.playerData.life == 0) && !this.dead)
+      {
+        this.actor.spriteRenderer.setAnimation("Die");
+        G.sys.playerData.canMove = false;
+        this.actor.arcadeBody2D.setVelocityX(0);
+      }
     if(this.actor.spriteRenderer.getAnimation() == "Die")
       {
-        if(this.actor.spriteRenderer.getAnimationFrameIndex() == 6)
+        if(this.actor.spriteRenderer.getAnimationFrameIndex() == 6 && !this.dead)
           {
-            this.actor.spriteRenderer.setAnimation("Dead");
+            this.dead = true;
+            this.deadTime = 0;
+            this.actor.spriteRenderer.pauseAnimation();
           }
       }
-    if(this.actor.spriteRenderer.getAnimation() == "Dead")
+    if(this.dead)
       {
-        G.sys.playerData.coal = 0;
-        G.sys.playerData.iron = 0;
-        G.sys.playerData.gold = 0;
-        G.sys.playerData.diamond = 0;
-        G.sys.playerData.life = G.sys.playerData.lifeMax;
-        G.sys.playerData.energy = G.sys.playerData.energyMax;
-        this.actor.spriteRenderer.setAnimation("Idle");
-        G.sys.playerData.canMove = true;
+        this.deadTime += 1/60;
+        if(this.deadTime >= this.deadMaxTime)
+          {
+            G.sys.playerData.coal = 0;
+            G.sys.playerData.iron = 0;
+            G.sys.playerData.gold = 0;
+            G.sys.playerData.diamond = 0;
+            G.sys.playerData.life = G.sys.playerData.lifeMax;
+            G.sys.playerData.energy = G.sys.playerData.energyMax;
+            this.actor.spriteRenderer.setAnimation("Idle");
+            G.sys.playerData.canMove = true;
+            this.dead = false;
+            
+            let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map);
+            placeGrave(G.sys.gameManager.map, Math.floor(playerPosition.x), Math.floor(playerPosition.y));
+            
+            this.actor.arcadeBody2D.warpPosition(9, 193);
+          }
       }
   }
   
@@ -224,6 +252,9 @@ class PlayerBehavior2 extends Sup.Behavior
       this.attackvalue = 0;
       this.moving = true;
       this.targetID = null;
+      
+      this.pick.setVisible(false);
+      this.pick.spriteRenderer.stopAnimation();
     }
   }
   
@@ -299,9 +330,9 @@ class PlayerBehavior2 extends Sup.Behavior
         if(this.actor.spriteRenderer.getAnimation() == "Fall")
           {
             this.isFalling = false;
-            if(playerPosition.y < this.positionBeforeFalling.y - 2)
+            if(playerPosition.y < this.positionBeforeFalling.y - 3)
               {
-                this.reduceLife(Math.floor(this.positionBeforeFalling.y - 2 - playerPosition.y)*FallingMultiplicateMalus);
+                this.reduceLife(Math.floor(this.positionBeforeFalling.y - 3 - playerPosition.y)*FallingMultiplicateMalus);
               }
           }
         if (Sup.Input.wasKeyJustPressed("UP")) {
@@ -326,11 +357,6 @@ class PlayerBehavior2 extends Sup.Behavior
             {
             if(this.moving)
               this.actor.spriteRenderer.setAnimation("Idle");
-              if(G.sys.playerData.energy == 0 || G.sys.playerData.life == 0)
-              {
-                this.actor.spriteRenderer.setAnimation("Die");
-                G.sys.playerData.canMove = false;
-              }
             }
           else
             {
@@ -412,6 +438,7 @@ class PlayerBehavior2 extends Sup.Behavior
                       {
                         this.attacktarget = target;
                         this.attackvalue = 0;
+                        this.pick.spriteRenderer.setHorizontalFlip(this.actor.spriteRenderer.getHorizontalFlip());
                       }
                   }
                 else
@@ -433,6 +460,9 @@ class PlayerBehavior2 extends Sup.Behavior
                     this.attacktarget = {x:Math.floor(mousePosition.x),y:Math.floor(mousePosition.y)}; 
                     this.attackvalue = 0;  
                     this.targetID = targetID;
+                    this.pick.spriteRenderer.setAnimation("Pick");
+                    this.pick.setVisible(true);
+                    this.pick.spriteRenderer.setHorizontalFlip(this.actor.spriteRenderer.getHorizontalFlip());
                   }
                 }
               }

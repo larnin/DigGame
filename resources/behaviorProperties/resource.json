@@ -89,6 +89,18 @@
         {
           "name": "blockSprite",
           "type": "any"
+        },
+        {
+          "name": "dead",
+          "type": "boolean"
+        },
+        {
+          "name": "deadTime",
+          "type": "number"
+        },
+        {
+          "name": "deadMaxTime",
+          "type": "number"
         }
       ]
     },
@@ -267,6 +279,14 @@
         {
           "name": "originalX",
           "type": "number"
+        },
+        {
+          "name": "originalCameraPosX",
+          "type": "number"
+        },
+        {
+          "name": "offset",
+          "type": "number"
         }
       ]
     },
@@ -328,6 +348,25 @@
         },
         {
           "name": "arrowMaxSize",
+          "type": "number"
+        }
+      ]
+    },
+    "CloudsMoverMenuBehavior": {
+      "scriptId": "123",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "size",
+          "type": "number"
+        },
+        {
+          "name": "moveSpeed",
+          "type": "number"
+        },
+        {
+          "name": "originalX",
           "type": "number"
         }
       ]

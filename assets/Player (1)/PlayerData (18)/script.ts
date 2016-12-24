@@ -3,8 +3,7 @@ const LadderCost = 1;
 const OpenChestCost = 1;
 const StepForLoseFood = 50;
 const StepLimitCost = 1;
-const FallingMultiplicateMalus = 1;
-
+const FallingMultiplicateMalus = 15;
 
 class PlayerData
 {

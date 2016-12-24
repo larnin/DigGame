@@ -6,7 +6,7 @@ const diamondValue = 100;
 const ladder1Value = 5;
 const ladder20Value = 75;
 const lifeValue = 10;
-const foodValue = 1;
+const foodValue = 0.2;
 
 const maxPickLevel = 5;
 const maxFoodLevel = 5;
@@ -294,27 +294,27 @@ Sup.registerBehavior(ShopBehavior);
 
 function pickSpeed(level : number) : number
 {
-  return 0.1*Math.sqrt(level);
+  return level*0.04+0.06;
 }
 
 function foodSize(level : number) : number
 {
-  return level*50;
+  return level*100;
 }
 
 function inventorySize(level : number) : number
 {
-  return level*10;
+  return level*6;
 }
 
 function pickLevelPrice(level : number) : number
 {
   switch(level)
   {
-    case 2 : return 100;
-    case 3 : return 400;
-    case 4 : return 1000;
-    case 5 : return 2500;
+    case 2 : return 30;
+    case 3 : return 100;
+    case 4 : return 300;
+    case 5 : return 1000;
     default : return -1;
   }
 }
@@ -323,10 +323,10 @@ function foodLevelPrice(level : number) : number
 {
   switch(level)
   {
-    case 2 : return 100;
-    case 3 : return 400;
-    case 4 : return 1000;
-    case 5 : return 2500;
+    case 2 : return 50;
+    case 3 : return 150;
+    case 4 : return 500;
+    case 5 : return 1500;
     default : return -1;
   }
 }
@@ -335,10 +335,10 @@ function invLevelPrice(level : number) : number
 {
   switch(level)
   {
-    case 2 : return 100;
-    case 3 : return 400;
-    case 4 : return 1000;
-    case 5 : return 2500;
+    case 2 : return 40;
+    case 3 : return 125;
+    case 4 : return 400;
+    case 5 : return 1250;
     default : return -1;
   }
 }
