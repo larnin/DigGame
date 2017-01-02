@@ -235,6 +235,10 @@ class PlayerBehavior2 extends Sup.Behavior
             {
               G.sys.playerData.iron++;
             }
+          if(this.targetID == silverID)
+            {
+              G.sys.playerData.silver++;
+            }
           if(this.targetID == goldID)
             {
               G.sys.playerData.gold++;
@@ -364,6 +368,9 @@ class PlayerBehavior2 extends Sup.Behavior
               this.attacktarget = null;
               this.attackvalue = 0;
               this.actor.spriteRenderer.setAnimation("Run");
+              
+              this.pick.setVisible(false);
+              this.pick.spriteRenderer.stopAnimation();
             }
         }
       } 

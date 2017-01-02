@@ -1354,19 +1354,6 @@
                 "shaderAssetId": null
               },
               "id": "0"
-            },
-            {
-              "type": "Behavior",
-              "config": {
-                "behaviorName": "MovingBackgroundBehavior",
-                "propertyValues": {
-                  "moveX": {
-                    "type": "number",
-                    "value": 0.1
-                  }
-                }
-              },
-              "id": "3"
             }
           ],
           "position": {
