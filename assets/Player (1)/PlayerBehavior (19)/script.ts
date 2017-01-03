@@ -353,6 +353,9 @@ class PlayerBehavior2 extends Sup.Behavior
           } 
           else
           {
+            this.pick.setVisible(false);
+            this.pick.spriteRenderer.stopAnimation();
+            
             velocity.y = this.jump;
             this.actor.spriteRenderer.setAnimation("Jump");
           }
