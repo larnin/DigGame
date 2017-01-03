@@ -445,6 +445,7 @@ class PlayerBehavior2 extends Sup.Behavior
                     let target = {x:Math.floor(mousePosition.x),y:Math.floor(mousePosition.y)}
                     if(target.x != this.attacktarget.x || target.y != this.attacktarget.y )
                       {
+                        this.targetID = this.tilemap.getTileAt(0,target.x,target.y);
                         this.attacktarget = target;
                         this.attackvalue = 0;
                         this.pick.spriteRenderer.setHorizontalFlip(this.actor.spriteRenderer.getHorizontalFlip());
