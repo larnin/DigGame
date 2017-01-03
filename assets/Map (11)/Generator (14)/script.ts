@@ -27,6 +27,9 @@ const chestHeight = grassHeight-10;
 const shopY = grassHeight+1;
 const shopX = 0.6;
 
+const eggCavernHeight = 3;
+const eggCavernWidth = 5;
+
 function generate(map : Sup.TileMap) : void
 {
   for(let i = 0 ; i < map.getWidth() ; i++)
@@ -39,6 +42,8 @@ function generate(map : Sup.TileMap) : void
   placeShop(map);
   
   placeChests(map);
+  
+  placeEgg(map);
 }
 
 function placeMineralLayer(x : number, y : number, width : number, height : number) : number
@@ -114,13 +119,13 @@ function placeOres(map : Sup.TileMap) : void
     }
 }
 
-function placeShop(map : Sup.TileMap)
+function placeShop(map : Sup.TileMap) : void
 {
   map.setTileAt(0, Math.floor(shopX*map.getWidth()), shopY, shopID);
   map.setTileAt(0, Math.floor(shopX*map.getWidth()), shopY-1, hardStoneID)
 }
 
-function placeChests(map : Sup.TileMap)
+function placeChests(map : Sup.TileMap) : void
 {
   for(let i = 0 ; i < chestNumber ; i++)
   {
@@ -149,6 +154,22 @@ function placeChests(map : Sup.TileMap)
     map.setTileAt(0, x+1, y, airID);
     map.setTileAt(0, x+1, y+1, airID);
   }
+}
+
+function placeEgg(map : Sup.TileMap) : void
+{
+  let x = map.getWidth()/2;
+  
+  for(let i = -eggCavernWidth ; i <= eggCavernWidth ; i++)
+    for(let j = 0 ; j <= eggCavernHeight ; j++)
+    {
+      if(((Math.abs(i)+0.5)/eggCavernWidth*(Math.abs(i)+0.5)/eggCavernWidth)+((j+0.5)/eggCavernHeight*(j+0.5)/eggCavernHeight) > 1)
+        continue;
+      if(map.getTileAt(0, x+i, j+1) == hardStoneID && map.getTileAt(0, x+i, j+2) == chestID)
+        continue;
+      map.setTileAt(0, x+i, j+1, airID);
+    }
+  map.setTileAt(0, x, 1, eggID);
 }
 
 function probabilityLinear(minRange : number, maxRange : number, value : number, minProbability : number, maxProbability : number) : number

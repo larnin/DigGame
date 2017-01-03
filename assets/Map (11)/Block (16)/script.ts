@@ -12,6 +12,7 @@ const solidAirID = 10;
 const chestID = 11;
 const openChestID = 12;
 const shopID = 13;
+const eggID = 14;
 
 const dirtDurability = 5;
 const stoneDurability = 25;

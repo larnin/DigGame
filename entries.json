@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 126,
+  "nextEntryId": 134,
   "nodes": [
     {
       "id": "0",
@@ -342,6 +342,43 @@
               "type": "script"
             }
           ]
+        },
+        {
+          "id": "126",
+          "name": "Egg",
+          "type": null,
+          "children": [
+            {
+              "id": "127",
+              "name": "Dino",
+              "type": "sprite"
+            },
+            {
+              "id": "128",
+              "name": "Egg1",
+              "type": "sprite"
+            },
+            {
+              "id": "129",
+              "name": "Egg2",
+              "type": "sprite"
+            },
+            {
+              "id": "130",
+              "name": "Egg2Back",
+              "type": "sprite"
+            },
+            {
+              "id": "131",
+              "name": "Egg3",
+              "type": "sprite"
+            },
+            {
+              "id": "132",
+              "name": "EggBehavior",
+              "type": "script"
+            }
+          ]
         }
       ]
     },
@@ -522,6 +559,11 @@
       "id": "37",
       "name": "CameraBehavior",
       "type": "script"
+    },
+    {
+      "id": "133",
+      "name": "Victory",
+      "type": "sprite"
     },
     {
       "id": "54",

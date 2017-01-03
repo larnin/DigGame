@@ -95,7 +95,8 @@ class PlayerBehavior2 extends Sup.Behavior
             G.sys.playerData.gold = 0;
             G.sys.playerData.diamond = 0;
             G.sys.playerData.life = G.sys.playerData.lifeMax;
-            G.sys.playerData.energy = G.sys.playerData.energyMax;
+            if(G.sys.playerData.energy < G.sys.playerData.energyMax/2)
+              G.sys.playerData.energy = G.sys.playerData.energyMax/2;
             this.actor.spriteRenderer.setAnimation("Idle");
             G.sys.playerData.canMove = true;
             this.dead = false;
@@ -223,7 +224,7 @@ class PlayerBehavior2 extends Sup.Behavior
             this.blockSprite.spriteRenderer.setAnimation("Crack9");
           }
       }
-    if(breakPerCent == 10)
+    if(breakPerCent >= 10)
     {
       if(G.sys.playerData.inventorySize > G.sys.playerData.oreCount())
         {
@@ -459,6 +460,10 @@ class PlayerBehavior2 extends Sup.Behavior
                   else if(targetID == shopID)
                   {
                     G.sys.gameManager.openShop();
+                  }
+                  else if(targetID == eggID)
+                  {
+                    G.sys.gameManager.hitEgg();
                   }
                   else
                   {

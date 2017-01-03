@@ -370,6 +370,45 @@
           "type": "number"
         }
       ]
+    },
+    "EggBehavior": {
+      "scriptId": "132",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "time",
+          "type": "number"
+        },
+        {
+          "name": "timeMax",
+          "type": "number"
+        },
+        {
+          "name": "timeBeforeRaw",
+          "type": "number"
+        },
+        {
+          "name": "timeRaw",
+          "type": "number"
+        },
+        {
+          "name": "timeBlackStart",
+          "type": "number"
+        },
+        {
+          "name": "timeBlack",
+          "type": "number"
+        },
+        {
+          "name": "called",
+          "type": "boolean"
+        },
+        {
+          "name": "crackRotSpeed",
+          "type": "number"
+        }
+      ]
     }
   }
 }
