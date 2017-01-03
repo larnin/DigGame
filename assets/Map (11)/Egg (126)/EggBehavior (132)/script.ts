@@ -42,7 +42,6 @@ class EggBehavior extends Sup.Behavior
       if(color > 1) color = 1;
       this.black.setOpacity(color);
       this.victory.setOpacity(color);
-      Sup.log(this.victory.actor.getPosition() + " " + this.victory.actor.getLocalPosition());
     }
     if(this.time > this.timeMax)
       G.sys.gameManager.endGame();

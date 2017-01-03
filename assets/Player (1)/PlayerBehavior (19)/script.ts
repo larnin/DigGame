@@ -44,6 +44,7 @@ class PlayerBehavior2 extends Sup.Behavior
     
       this.pick = this.actor.getChild("Pick");
       this.pick.setVisible(false);
+    
   }
   
   update() 

@@ -118,7 +118,7 @@ function blockDifficultyOf(id : number) : number //mining level
     return 3;
   if(id == goldID)
     return 4;
-  if(id == diamondID)
+  if(id == diamondID || id == eggID)
     return 5;
   if(isDirt(id))
     return 1;

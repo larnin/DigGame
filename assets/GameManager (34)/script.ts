@@ -54,7 +54,6 @@ class GameManagerBehavior extends Sup.Behavior
   {
     let worldX = x*2-40+0.78;
     let worldY = y*2+0.468;
-    Sup.log(worldX + " " + worldY);
     let actor = Sup.appendScene("Map/ChestEffect/ChestPrefab");
     actor[0].setPosition(worldX, worldY, -9);
     
