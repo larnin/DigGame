@@ -342,6 +342,8 @@ class PlayerBehavior2 extends Sup.Behavior
               }
           }
         if (Sup.Input.wasKeyJustPressed("UP")) {
+          this.pick.setVisible(false);
+          this.pick.spriteRenderer.stopAnimation();
           this.blockSprite.spriteRenderer.setAnimation("null");
           this.attacktarget = null;
           this.attackvalue = 0;
@@ -352,10 +354,7 @@ class PlayerBehavior2 extends Sup.Behavior
              Sup.ArcadePhysics2D.setGravity(0, 0);
           } 
           else
-          {
-            this.pick.setVisible(false);
-            this.pick.spriteRenderer.stopAnimation();
-            
+          { 
             velocity.y = this.jump;
             this.actor.spriteRenderer.setAnimation("Jump");
           }
@@ -384,6 +383,7 @@ class PlayerBehavior2 extends Sup.Behavior
         let playerPosition = worldToMap(this.actor.getX(),this.actor.getY(),this.map)
         if(this.tilemap.getTileAt(0,Math.floor(playerPosition.x),Math.floor(playerPosition.y)) == ladderID && (Sup.Input.isKeyDown("UP") || Sup.Input.isKeyDown("DOWN")))
           {
+              this.isFalling = false;
               this.actor.spriteRenderer.setAnimation("Climb");
               Sup.ArcadePhysics2D.setGravity(0, 0);    
           }
