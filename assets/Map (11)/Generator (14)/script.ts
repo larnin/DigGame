@@ -148,11 +148,17 @@ function placeChests(map : Sup.TileMap) : void
     }
     map.setTileAt(0, x, y, chestID);
     map.setTileAt(0, x, y-1, hardStoneID);
-    map.setTileAt(0, x-1, y+1, airID);
-    map.setTileAt(0, x-1, y, airID);
+    if(x>0)
+    {
+      map.setTileAt(0, x-1, y+1, airID);
+      map.setTileAt(0, x-1, y, airID);
+    }
     map.setTileAt(0, x, y+1, airID);
-    map.setTileAt(0, x+1, y, airID);
-    map.setTileAt(0, x+1, y+1, airID);
+    if(x<map.getWidth()-1)
+    {
+      map.setTileAt(0, x+1, y, airID);
+      map.setTileAt(0, x+1, y+1, airID);
+    }
   }
 }
 

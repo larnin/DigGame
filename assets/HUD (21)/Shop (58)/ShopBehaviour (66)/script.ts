@@ -65,7 +65,7 @@ class ShopBehavior extends Sup.Behavior
 
   update() 
   {
-    if(Sup.Input.wasMouseButtonJustReleased(0))
+    if(Sup.Input.wasMouseButtonJustPressed(0))
     {
       let pos = Sup.Input.getMousePosition();
       let ray = new Sup.Math.Ray();
